@@ -2,7 +2,7 @@
 
 A recursive ontology of form, frame, field, node, relation, graph, structure, and representation across base/meta/whole-form levels.
 
-Hyperstratum defines the upstream primitives used by downstream frameworks such as Force of Will, deception taxonomy, hyper-grammar, and Formal Universality.
+Hyperstratum defines the upstream primitives used by downstream frameworks such as Force of Will, deception taxonomy, hypergrammar, and Formal Universality.
 
 In this framework, `hyper-` does not merely mean larger, higher-dimensional, or more abstract. It means recursive meta-connective structure across base forms, meta-forms, meta-meta-forms, and the whole-form closure they participate in.
 
