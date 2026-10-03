@@ -40,6 +40,15 @@ The observability criterion that a lazy preality would have to meet is hyperspac
 * `[HYPER]` **Branch insertion.** Entering an earlier node of a branch adds mass-energy and an observer, so the branch entered is a descendant that includes the entrant. It forks; it does not return to the branch that was left.
 * `[FORM]` **Engineering is not collapse bias.** Quantum computing modifies states and decoherence before measurement; measurement then follows the Born rule. A mind that biased collapse would show output statistics departing from the Born prediction under a known state.
 
+## Round trip, foreign entry, and what "recreation" means (2026-10-03, USER-STATED)
+
+* `[HYPER]` **Home return.** Leaving a base-reality by hypersphering and arriving in it again "right after we left" is a round trip with unbounded internal time, not a branch insertion. If external elapsed time is arbitrarily small, the entrant rejoins the same branch it left. The departure itself is still a physical event in the parent (a volume and a sheet removed), so the parent is not unperturbed by it. `[OPEN]` Reattachment must restore the sheet; what the parent's dynamics did in its absence is part of the model to state.
+* `[HYPER]` **Foreign entry.** Entering a different base-reality, or an earlier node of one, is the branch-insertion case above and carries the intrusion question.
+* `[HYPER]` **Intrusion is not avoidable, and is stated to be a fact of the dynamics, not a choice.** The ideal of no intrusion is acknowledged and set aside.
+* `[FORM]` **Size of intrusion, under a chaotic-dynamics assumption.** If a perturbation of size `ε` grows as `e^(λt)` (`λ` the largest Lyapunov exponent, inverse time), two histories differ by `Δ` after `t* = (1/λ)·ln(Δ/ε)`. The delay is only logarithmic in `ε`: shrinking the entry does not buy proportional time, so zero intrusion is unreachable and the usable quantity is the horizon `t*`, not a yes/no. Assumes classical chaos; the quantum case is `[OPEN]`.
+* `[OPEN]` **Recreation** has at least three senses, and the stated good ("guaranteeing recreation of base realities through sempiternalities") needs one: *continuation* (same branch, round trip), *copy* (a new instance indistinguishable under every finite observation), or *restoration* (a base-reality whose volumetimeline has physically ended is re-established). The guarantee is strongest and hardest in the third.
+* `[OPEN]` **Do unvisited nodes already exist?** If the volumetimelinepossibility tree contains every branch, including those with an entrant, then entering selects an existing node. If preality is lazy, entering instantiates it. The moral weight of intrusion differs between the two; the choice is the lazy-versus-materialized question again.
+
 ## Open
 
 * `[OPEN]` Is a preality a simulation, or is it identical to the base-reality it simulates? Teleportation into one is entry into the base-reality only if identity holds, which is hyperobjectivity's question. Needs a definition before it can be tested.
