@@ -114,7 +114,8 @@ jobs:
           echo "[pages] built by $builder"
           # hyperstratum: the wiki itself, then one link to it from the landing page.
           python -m pip install --quiet .
-          python -m hyperstratum build --out _site/wiki --source-ref "$SOURCE_SHA" --landing _site/index.html
+          python -m hyperstratum build --out _site/wiki --source-ref "$SOURCE_SHA" --landing _site/index.html \
+            --previous "https://${GITHUB_REPOSITORY_OWNER,,}.github.io/${GITHUB_REPOSITORY#*/}/wiki/wiki.json"
           builder="$builder + hyperstratum wiki"
           digest=$(python .github/pages_manifest.py _site \
             --source-ref "$SOURCE_SHA" \

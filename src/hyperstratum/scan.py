@@ -24,6 +24,8 @@ MAX_BYTES = 2_000_000
 MAX_LOCATIONS = 12
 TAGS = ("FORM", "FRAME", "OPEN", "HYPER")
 
+# Original case, not IGNORECASE: `HypermathFullAxiomModel` is an identifier, not a word.
+HYPER_WORD_RE = re.compile(r"(?<![\w-])[Hh]yper[a-z]{2,}(?![\w-])")
 TAG_RE = re.compile(r"\[(FORM|FRAME|OPEN|HYPER)\]")
 URL_RE = re.compile(r"https?://\S+")
 CITATION_RE = re.compile(
@@ -88,6 +90,7 @@ class FieldScan:
     contract_error: str | None = None
     excerpt: str = ""
     citations: list[Citation] = field(default_factory=list)
+    hyper_words: dict[str, Mentions] = field(default_factory=dict)
     raw_edges: dict[tuple[str, str], Mentions] = field(default_factory=dict)
 
 
@@ -181,6 +184,8 @@ def scan_field(f: Field, terms: list[lexicon.Term], sibling_names: set[str] | No
                     m.count += hits
                     if len(m.locations) < MAX_LOCATIONS:
                         m.locations.append((rel, i))
+            for w in HYPER_WORD_RE.findall(line):
+                _bump_word(s.hyper_words, w.lower(), rel, i)
             for tag in TAG_RE.findall(line):
                 tags[tag] += 1
             if "[OPEN]" in line:
@@ -206,6 +211,13 @@ def scan_field(f: Field, terms: list[lexicon.Term], sibling_names: set[str] | No
             s.contract_error = str(exc)
     s.excerpt = _excerpt(f.path / "README.md")
     return s
+
+
+def _bump_word(words: dict, word: str, rel: str, line: int) -> None:
+    m = words.setdefault(word, Mentions())
+    m.count += 1
+    if len(m.locations) < MAX_LOCATIONS:
+        m.locations.append((rel, line))
 
 
 def _bump(raw: dict, key: tuple[str, str], rel: str, line: int) -> None:
@@ -258,4 +270,52 @@ def audit_citations(citations: list[Citation], reg: Registry, blob_lookup) -> li
                                  "whether the cited file changed between them is UNKNOWN"))
         else:
             out.append(Audit(c, "EXTERNAL", f"{c.target} is not a pinned hyperfield"))
+    return out
+
+
+# Technical words that begin with "hyper" in their ordinary, established senses.
+# They are not coinages of this ecosystem, so listing them as candidate terms
+# would bury the real ones. Edit freely: a word added here only disappears from
+# the candidates page, nothing else.
+STANDARD_HYPER_WORDS = frozenset({
+    "hyperlink", "hypertext", "hyperparameter", "hypervisor", "hyperbolic", "hyperbola",
+    "hyperbole", "hypergraph", "hyperset", "hyperreal", "hypercube", "hyperplane",
+    "hypersphere", "hyperoperation", "hyperfine", "hypergeometric", "hyperthreading",
+    "hypertension", "hyperactive", "hyperlinked", "hyperscale", "hyperscaler",
+    "hyperconverged", "hyperfocus", "hyperventilate", "hyperinflation", "hyperloop",
+    "hypermedia", "hypersonic", "hyperspectral", "hypercalcemia", "hyperref", "hypersetup",
+})
+
+
+def _fold(word: str, seen: set[str]) -> str:
+    """Merge a plural into its singular only if the singular was itself seen."""
+    if word.endswith("s") and not word.endswith(("ss", "us", "is")) and word[:-1] in seen:
+        return word[:-1]
+    return word
+
+
+def candidate_terms(scans: dict[str, FieldScan], terms: list[lexicon.Term], reg: Registry) -> list[dict]:
+    """`hyper*` words the fields use that the lexicon does not define.
+
+    Only the hyper- family is detected; a coinage in another shape (the owner's
+    "universempiternality") is invisible here, and the page says so.
+    """
+    known = {t.slug for t in terms} | {f.name for f in reg.fields} | {"hyperstratum"}
+    known |= {t.slug.replace("-", "") for t in terms}
+    merged: dict[str, dict] = {}
+    seen = {w for sc in scans.values() for w in sc.hyper_words}
+    for name in sorted(scans):
+        for raw, m in scans[name].hyper_words.items():
+            w = _fold(raw, seen)
+            if w in known or raw in known or w in STANDARD_HYPER_WORDS or raw in STANDARD_HYPER_WORDS:
+                continue
+            e = merged.setdefault(w, {"word": w, "total": 0, "fields": {}, "places": []})
+            e["total"] += m.count
+            e["fields"][name] = e["fields"].get(name, 0) + m.count
+            for path, line in m.locations[:2]:
+                if len(e["places"]) < 6:
+                    e["places"].append([name, path, line])
+    out = sorted(merged.values(), key=lambda e: (-len(e["fields"]), -e["total"], e["word"]))
+    for e in out:
+        e["fields"] = dict(sorted(e["fields"].items()))
     return out

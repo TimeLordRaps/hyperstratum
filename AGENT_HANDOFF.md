@@ -10,6 +10,6 @@ Updated 2026-10-03 (branch `claude/optimistic-einstein-3zorpo`).
 
 **Reproduce.** `git submodule update --init --depth 1 --jobs 8 && pip install -e ".[test]" && HYPERSTRATUM_REQUIRE_FIELDS=1 python -m pytest -vv -s --durations=10 --timeout=120 && python -m hyperstratum check`.
 
-**Audit state.** Technical-debt sniff-test checkpoint count: 1 (this build). Next due: after 3-7 checkpoints; draw recorded below.
+**Audit state.** Technical-debt sniff-test checkpoint count: 2 (automations 1-3 added). Next due: after 3-7 checkpoints; draw recorded below.
 
 Next sniff audit due in 4 checkpoints (SystemRandom draw 2026-10-03), i.e. at checkpoint 5.

@@ -17,13 +17,15 @@ import subprocess
 import urllib.parse
 from dataclasses import dataclass
 
-from . import __version__, lexicon, refs, registry, scan
+from . import __version__, diff as diffmod, lexicon, refs, registry, scan
 
 SCHEMA = "hyperstratum-wiki/1"
 PRIMER_DIRS = ("docs", "specs", "examples")
 LOCK_FILE = "wiki.lock.json"
 SYMBOL_LIMIT = 300
 OPEN_LIMIT = 60
+CANDIDATE_LIMIT = 150
+CANDIDATE_JSON_LIMIT = 100
 
 STYLE = """
 :root{--ink:#16181d;--muted:#5b6270;--rule:#d9dde5;--bg:#fff;--accent:#2f5fd0;--code:#f4f6fa;
@@ -118,7 +120,7 @@ def _rel(src: str, dst: str) -> str:
 
 
 def collect(root, pins=None, blob_lookup=None, lock: dict | None = None,
-            source_ref: str = "") -> Collected:
+            source_ref: str = "", previous: dict | None = None) -> Collected:
     root = pathlib.Path(root)
     reg = registry.load_registry(root, pins=pins)
     blob_lookup = blob_lookup or GitBlobs(root)
@@ -183,8 +185,10 @@ def collect(root, pins=None, blob_lookup=None, lock: dict | None = None,
                        "target": a.citation.target, "sha": a.citation.sha, "path": a.citation.path,
                        "status": a.status, "detail": a.detail} for a in audits],
         "refs": [{"key": r.key, "status": r.status, "detail": r.detail} for r in resolved],
+        "candidates": scan.candidate_terms(scans, terms, reg)[:CANDIDATE_JSON_LIMIT],
         "problems": problems,
     }
+    model["changes"] = diffmod.diff_models(previous, model)
     return Collected(model, reg, terms, statements, levels, scans, audits, edges, resolver,
                      resolved, documents)
 
@@ -197,6 +201,9 @@ def _field_row(f: registry.Field, s: scan.FieldScan | None, terms: list[lexicon.
             "files": s.files, "tags": s.tags, "lean_sorry_occurrences": s.sorry_count,
             "contract": s.contract, "symbols": len(s.symbols), "open_items": len(s.open_items),
             "mentions": {slug: m.count for slug, m in sorted(s.mentions.items()) if m.count},
+            # Kept so the next build can say what changed (see diff.py).
+            "open": sorted({t for _, _, t in s.open_items}),
+            "symbol_names": sorted({f"{x.path}::{x.name}" for x in s.symbols}),
         })
     return row
 
@@ -230,7 +237,8 @@ class Site:
     def page(self, here: str, title: str, body: str) -> str:
         nav = " ".join(self.link(here, to, label) for to, label in [
             ("index.html", "Wiki"), ("index.html#terms", "Terms"), ("index.html#fields", "Fields"),
-            ("open.html", "Open questions"), ("audit.html", "Audit")])
+            ("open.html", "Open questions"), ("candidates.html", "Candidate terms"),
+            ("changes.html", "Changes"), ("audit.html", "Audit")])
         css = _rel(here, "style.css")
         ref = f" &middot; built from <code>{_e(self.c.model['source_ref'][:12])}</code>" if self.c.model["source_ref"] else ""
         return (f'<!DOCTYPE html>\n<html lang="en"><head><meta charset="utf-8">'
@@ -393,6 +401,41 @@ class Site:
             b.append("<p>No <code>[OPEN]</code> markers found.</p>")
         self.write(here, self.page(here, "Open questions", "\n".join(b)))
 
+    def candidates_page(self) -> None:
+        here, c = "candidates.html", self.c
+        rows = c.model["candidates"][:CANDIDATE_LIMIT]
+        b = ["<h1>Candidate terms</h1>",
+             '<p class="muted">Words beginning <code>hyper</code> that the pinned hyperfields use and the lexicon does not '
+             "define, ranked by how many fields use them. Standard technical words (hyperlink, hyperbolic, &hellip;) are "
+             "suppressed. Only the hyper- family is detected: a coinage of another shape will not appear here.</p>"]
+        if rows:
+            body = []
+            for e in rows:
+                per = ", ".join(f"{self.field_link(here, n)}&nbsp;{k}" for n, k in e["fields"].items())
+                places = ", ".join(
+                    f'<a href="{_e(self.fields[n].permalink(p, f"L{ln}"))}">{_e(n)}:{_e(p)}:{ln}</a>'
+                    for n, p, ln in e["places"][:3] if n in self.fields)
+                body.append(f"<tr><td><code>{_e(e['word'])}</code></td><td>{len(e['fields'])}</td>"
+                            f"<td>{e['total']}</td><td>{per}</td><td>{places}</td></tr>")
+            b.append("<table><tr><th>Word</th><th>Fields</th><th>Uses</th><th>Where</th><th>First places</th></tr>"
+                     + "".join(body) + "</table>")
+        else:
+            b.append("<p>No undefined hyper- words found.</p>")
+        self.write(here, self.page(here, "Candidate terms", "\n".join(b)))
+
+    def changes_page(self) -> None:
+        import markdown
+
+        here, ch = "changes.html", self.c.model["changes"]
+        if ch is None:
+            body = ("<h1>Changes</h1><p>No previous build was available to compare with"
+                    + (f" ({_e(self.c.model.get('previous_unavailable', ''))})" if self.c.model.get("previous_unavailable") else "")
+                    + ".</p>")
+        else:
+            body = markdown.markdown(diffmod.changes_markdown(ch), extensions=["sane_lists"], output_format="html5")
+            self.write("changes.md", diffmod.changes_markdown(ch))
+        self.write(here, self.page(here, "Changes", body))
+
     def audit_page(self) -> None:
         here, c = "audit.html", self.c
         b = ["<h1>Audit</h1>", '<p class="muted">What the wiki cannot vouch for, stated plainly.</p>',
@@ -423,6 +466,7 @@ class Site:
              f'<p class="muted">{len(c.terms)} terms &middot; {len(pinned)} pinned hyperfields &middot; '
              f"{sum(len(s.symbols) for s in c.scans.values())} symbols &middot; "
              f"{sum(len(s.open_items) for s in c.scans.values())} [OPEN] items &middot; "
+             f"{len(c.model['candidates'])} candidate terms &middot; "
              f'{sum(1 for p in c.model["problems"] if p["severity"] == "error")} error(s), '
              f'{sum(1 for p in c.model["problems"] if p["severity"] == "warning")} warning(s) — '
              f'{self.link(here, "audit.html", "audit")}</p>',
@@ -489,14 +533,18 @@ def render(c: Collected, out: pathlib.Path) -> Site:
     for f in c.reg.fields:
         site.field_page(f)
     site.open_page()
+    site.candidates_page()
+    site.changes_page()
     site.audit_page()
     site.document_pages()
     site.write("wiki.json", json.dumps(c.model, indent=2, sort_keys=True, ensure_ascii=False) + "\n")
     return site
 
 
-def build_site(root, out, pins=None, blob_lookup=None, lock=None, source_ref: str = "") -> dict:
-    c = collect(root, pins=pins, blob_lookup=blob_lookup, lock=lock, source_ref=source_ref)
+def build_site(root, out, pins=None, blob_lookup=None, lock=None, source_ref: str = "",
+               previous: dict | None = None) -> dict:
+    c = collect(root, pins=pins, blob_lookup=blob_lookup, lock=lock, source_ref=source_ref,
+                previous=previous)
     render(c, pathlib.Path(out))
     return c.model
 

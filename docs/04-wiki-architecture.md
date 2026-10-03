@@ -40,6 +40,12 @@ Statuses: `OK`; `DRIFTED` (text differs from `wiki.lock.json`); `MOVED` (the fil
 
 All three end in a pull request, so `wiki.yml` reviews the change. Nothing publishes without the existing `pages.yml` gate.
 
+## Three automations that read the result
+
+* **Auto-merge of clean pin moves** (`automerge` job in `wiki.yml`). `hyperstratum check --verdict` writes `clean: true` only when there is no error, no drifted/moved/missing reference and no drift in a definition that a field cites. A pull request from Dependabot or the sync branch that touches nothing but `fields/` and has a clean verdict gets GitHub auto-merge. It is off until the repository variable `AUTOMERGE_FIELDS` is `true`, and it needs "Allow auto-merge" plus a required `wiki` check in branch protection. A stale citation of a sibling alone is *not* attention: that is the normal state of a fast-moving family.
+* **Candidate terms** (`candidates.html`). Words beginning `hyper` that the fields use and the lexicon does not define, ranked by how many fields use them. Standard technical words are suppressed by `STANDARD_HYPER_WORDS` in `scan.py`. A coinage that does not begin `hyper` is invisible to it.
+* **Changes** (`changes.html`, `changes.md`). Each build is diffed against the last deployed `wiki.json`: pins moved, new or removed `[OPEN]` items and symbols, vocabulary-use deltas, reference status changes, new and resolved problems. `wiki.yml` writes it to the run summary of every pin-moving pull request. If the previous build cannot be fetched the page says so; a category the previous build did not record is reported as not comparable, never as new.
+
 ## Audits that need no reference
 
 * **Commit-pinned citations.** Fields cite each other with absolute `blob/<sha>/<path>` URLs. For a citation of this repository the blob at the cited commit is compared with the blob at `HEAD`; `DRIFTED` means a definition changed under its citer. For a citation of a sibling, `CURRENT` means the cited commit is the wiki's pin; otherwise `BEHIND`, and whether the file changed in between is **unknown** (pinned checkouts are shallow).

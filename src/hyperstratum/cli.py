@@ -6,7 +6,7 @@ import argparse
 import pathlib
 import sys
 
-from . import build, refs, registry
+from . import build, diff, refs, registry
 
 SEVERITY_ORDER = {"error": 0, "warning": 1, "info": 2}
 
@@ -25,10 +25,14 @@ def _parser() -> argparse.ArgumentParser:
         if name == "build":
             s.add_argument("--out", default="_site/wiki")
             s.add_argument("--source-ref", default="")
+            s.add_argument("--previous", default="",
+                           help="wiki.json (path or https URL) of the last build, to report what changed")
             s.add_argument("--landing", default="",
                            help="a landing index.html to receive one link to the wiki")
         if name == "check":
             s.add_argument("--strict", action="store_true", help="warnings fail too")
+            s.add_argument("--verdict", default="",
+                           help="write a machine-readable clean/attention verdict to this path")
     return p
 
 
@@ -53,7 +57,12 @@ def main(argv: list[str] | None = None, pins=None, blob_lookup=None) -> int:
     source_ref = "" if args.no_git else build.head_sha(root)
     if args.cmd == "build":
         source_ref = args.source_ref or source_ref
-        c = build.collect(root, source_ref=source_ref, **kw)
+        previous, why = (diff.load_previous(args.previous) if args.previous else (None, ""))
+        if args.previous and previous is None:
+            print(f"note: no previous build to compare with ({why})")
+        c = build.collect(root, source_ref=source_ref, previous=previous, **kw)
+        if why:
+            c.model["previous_unavailable"] = why
         site = build.render(c, pathlib.Path(args.out))
         errors = sum(1 for p in c.model["problems"] if p["severity"] == "error")
         print(f"built {len(site.written)} file(s) into {args.out} "
@@ -72,7 +81,26 @@ def main(argv: list[str] | None = None, pins=None, blob_lookup=None) -> int:
     n = {k: sum(1 for p in problems if p["severity"] == k) for k in SEVERITY_ORDER}
     print(f"\n{n['error']} error(s), {n['warning']} warning(s), {n['info']} info; "
           f"{len(c.scans)} field(s) scanned, {len(c.resolved)} reference(s) resolved")
+    if args.verdict:
+        _write_verdict(pathlib.Path(args.verdict), c.model["problems"], n)
     return 1 if n["error"] or (args.strict and n["warning"]) else 0
+
+
+# What a person must look at before a pin move is merged. A stale sibling
+# citation (`CITATION_BEHIND`) is deliberately absent: it is the normal state of
+# a fast-moving family and says nothing about whether *this* move is safe.
+ATTENTION = ("DRIFTED", "MOVED", "REDIRECTED", "MISSING_FIELD", "MISSING_FILE", "BAD_RANGE",
+             "MISSING_TERM", "AMBIGUOUS", "CITATION_DRIFTED", "CITATION_UNRESOLVABLE")
+
+
+def _write_verdict(path: pathlib.Path, problems: list[dict], n: dict) -> None:
+    import json
+
+    items = [p for p in problems if p["severity"] == "error" or p["code"] in ATTENTION]
+    verdict = {"schema": "hyperstratum-verdict/1", "clean": not items, "errors": n["error"],
+               "warnings": n["warning"], "attention": [
+                   {"code": p["code"], "subject": p["subject"], "detail": p["detail"]} for p in items]}
+    path.write_text(json.dumps(verdict, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
 def console() -> None:

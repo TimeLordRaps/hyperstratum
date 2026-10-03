@@ -22,6 +22,10 @@ jobs:
   wiki:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    outputs:
+      # "true" only when nothing in this pin move needs a person (see
+      # `hyperstratum check --verdict`). Consumed by the automerge job below.
+      clean: ${{ steps.verdict.outputs.clean }}
     env:
       # Absent fields/ is a failure here, never a quiet skip.
       HYPERSTRATUM_REQUIRE_FIELDS: "1"
@@ -43,14 +47,68 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          python -m hyperstratum check | tee check.txt
+          python -m hyperstratum check --verdict verdict.json | tee check.txt
           {
             echo '### hyperstratum check'
             echo '```'
             tail -n 80 check.txt
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
+      - name: Read the verdict
+        id: verdict
+        run: |
+          echo "clean=$(jq -r .clean verdict.json)" >> "$GITHUB_OUTPUT"
+          {
+            echo '### Needs a person?'
+            jq -r 'if .clean then "No: no errors, no drifted or missing reference, no definition drift." else (.attention[] | "- **\(.code)** \(.subject): \(.detail)") end' verdict.json
+          } >> "$GITHUB_STEP_SUMMARY"
       - name: Pins match what is checked out
         run: git submodule status --recursive | grep -v '^ ' && exit 1 || echo "every checkout is at its pinned commit"
-      - name: Build the site
-        run: python -m hyperstratum build --out _site/wiki
+      - name: Build the site and report what changed since the last deploy
+        shell: bash
+        run: |
+          python -m hyperstratum build --out _site/wiki \
+            --previous "https://${GITHUB_REPOSITORY_OWNER,,}.github.io/${GITHUB_REPOSITORY#*/}/wiki/wiki.json"
+          if [ -f _site/wiki/changes.md ]; then
+            cat _site/wiki/changes.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+  automerge:
+    # Opt-in twice: the file ships, but nothing merges until the repository
+    # variable AUTOMERGE_FIELDS is set to "true" AND branch protection requires
+    # the `wiki` check. Only a pin move qualifies -- authored by Dependabot or
+    # the sync branch, from this repository, touching nothing but fields/ -- and
+    # only when the verdict is clean. Anything else waits for a person.
+    needs: wiki
+    if: >-
+      github.event_name == 'pull_request' &&
+      vars.AUTOMERGE_FIELDS == 'true' &&
+      needs.wiki.outputs.clean == 'true' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      (github.actor == 'dependabot[bot]' || startsWith(github.head_ref, 'sync/fields-'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Enable auto-merge for a fields-only pin move
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=$(gh pr diff "$PR" --repo "$GITHUB_REPOSITORY" --name-only)
+          stray=$(printf '%s\n' "$files" | grep -v '^fields/' || true)
+          if [ -n "$stray" ]; then
+            echo "not a pure pin move; leaving it for a person:"; echo "$stray"
+            echo "auto-merge skipped: touches files outside fields/" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          if gh pr merge "$PR" --repo "$GITHUB_REPOSITORY" --auto --squash; then
+            echo "auto-merge enabled: clean verdict, fields-only" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::warning::could not enable auto-merge (repository setting 'Allow auto-merge' and a required check are prerequisites)"
+            echo "auto-merge NOT enabled: see warning" >> "$GITHUB_STEP_SUMMARY"
+          fi
