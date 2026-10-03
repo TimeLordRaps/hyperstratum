@@ -5,10 +5,25 @@
       "pin": "dc89cbb4f154844ca4909d7c1c359ee3882323e2",
       "sha256": "d97ee16416f69290a529dc0663b654cd1bfe84d6f5b5490af2836d3bde6e491a"
     },
+    "hyperreality:FIELD_SPEC.md#L61-L66": {
+      "at": "hyperreality:FIELD_SPEC.md",
+      "pin": "04181471bc4206bbb5da07163a8a2d2e6e32c227",
+      "sha256": "ee0da4164c2a36a62173326df7f07e01a345a0338b99c432acc4b4805eb2237b"
+    },
+    "hyperreality:FIELD_SPEC.md#L73-L74": {
+      "at": "hyperreality:FIELD_SPEC.md",
+      "pin": "04181471bc4206bbb5da07163a8a2d2e6e32c227",
+      "sha256": "1fe28b6378a05cec92059e966cfdc7890d5c0ad398ab7c5670355c9e4f5b3a82"
+    },
     "hyperreality:README.md#L31-L37": {
       "at": "hyperreality:README.md",
       "pin": "04181471bc4206bbb5da07163a8a2d2e6e32c227",
       "sha256": "e0325a607e4f9cba9da1ef070a18eedf0135d4d14a142c0fa85fb5e909aed512"
+    },
+    "hyperreality:README.md#L6-L12": {
+      "at": "hyperreality:README.md",
+      "pin": "04181471bc4206bbb5da07163a8a2d2e6e32c227",
+      "sha256": "913b76c4fd2266925a11d56f9801ada1ee5fb388c8b097f7b8bf0c8d20ea5955"
     },
     "hyperspace:FIELD_SPEC.md#L28-L33": {
       "at": "hyperspace:FIELD_SPEC.md",
