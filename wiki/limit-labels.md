@@ -1,6 +1,6 @@
 # Limit labels
 
-**Status, 2026-10-03.** `[FRAME]` for the method and its tests; `[HYPER]` for the application to spacetime; `[OPEN]` where stated. The code is in `incubator/hyperphysics-limits/` of this repository and is **not yet in hyperphysics**.
+**Status, 2026-10-03.** `[FRAME]` for the method and its tests; `[HYPER]` for the application to spacetime; `[OPEN]` where stated. The code is pushed to hyperphysics as commit `d34561d` on the unmerged branch `claude/order-of-limits`, and a finite companion witness to hyperchemistry as `9adb266` on the unmerged branch `claude/projection-order-witness`. No pull request is open for either. This wiki pins the hyperfields at earlier commits, so the quoted passages below do not yet include that work.
 
 ## The problem
 
@@ -49,6 +49,10 @@ hyperphysics states a law once with its validity conditions and failure modes; a
 [[hyperchemistry:README.md#L16-L17]]
 
 Words of limits in different orders are an instance of it, with limits as the operations. See [[hyperphysics]] and [[hyperchemistry]].
+
+## The finite counterpart, in hyperchemistry
+
+The contract there can state this exactly for finite relations, where limits cannot be stated at all. Adding the universal quantifier to the existential projection its composition already uses, two projections applied to one relation in different orders give different results. Over all sixteen relations on `B x B`, with `B = {0, 1}`, `exists y, forall x` always implies `forall x, exists y`, and the converse fails for **exactly two** relations: the identity and the negation that the repository's own witnesses already use. An exchange of limits is an exchange of quantifiers (`epsilon`, `N`), so this is the shape of the failure in a setting small enough to enumerate. It is not a model of limits, and the map from a word of limits to a quantifier prefix is `[OPEN]` there (HC-004).
 
 ## Open
 

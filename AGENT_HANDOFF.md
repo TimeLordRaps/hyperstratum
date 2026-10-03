@@ -14,4 +14,4 @@ Updated 2026-10-03 (branch `claude/optimistic-einstein-3zorpo`).
 
 Next sniff audit due in 4 checkpoints (SystemRandom draw 2026-10-03), i.e. at checkpoint 5.
 
-**Limit labels (2026-10-03).** `incubator/hyperphysics-limits/` holds the order-of-limits method in hyperphysics' shape with its tests and `HANDOFF.md`. It is not in hyperphysics: promotion needs the owner's go-ahead to add that repository with push access. Wiki page: `wiki/limit-labels.md`.
+**Limit labels (2026-10-03).** `incubator/hyperphysics-limits/` holds the order-of-limits method in hyperphysics' shape with its tests and `HANDOFF.md`. It was promoted on the owner's go-ahead: `TimeLordRaps/hyperphysics` branch `claude/order-of-limits` (`d34561d`) and `TimeLordRaps/hyperchemistry` branch `claude/projection-order-witness` (`9adb266`). Both are pushed, unmerged, with no pull request; the session was told to do the work in those repositories, not to open pull requests. Clones are at `/home/user/hyperphysics` and `/home/user/hyperchemistry` and are ephemeral. Wiki page: `wiki/limit-labels.md`.

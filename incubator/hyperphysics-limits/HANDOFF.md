@@ -1,6 +1,6 @@
 # Handoff: order-of-limits labels for hyperphysics
 
-**Status, 2026-10-03.** Written and tested inside hyperstratum, deliberately in hyperphysics' own shape, so that promotion is a copy. **Not applied to hyperphysics.** This session's repository access is limited to hyperstratum, and writing into another repository needs the owner's explicit go-ahead.
+**Status, 2026-10-03.** Written and tested inside hyperstratum in hyperphysics' own shape, then promoted on the owner's go-ahead: pushed to `TimeLordRaps/hyperphysics` as commit `d34561d` on branch `claude/order-of-limits` (**no pull request opened, not merged**). This copy stays until that branch is merged, and should then be deleted. hyperphysics' full suite passes there (73 tests: its 55 plus these 18), ruff is clean, and no byte of a manifest-tracked file changed.
 
 ## What is here
 
@@ -14,14 +14,14 @@ Standard library only; Python 3.10+; tests run in about 1.5 s against hyperphysi
 ## Why hyperphysics, and what is left for hyperchemistry
 
 * hyperphysics is declared as the mechanics, dynamics and static features of operations, and it states a law once with its validity conditions and failure modes. A limit is an operation on a sequence of operations; `limits.py` states it with its schedule, its refusal conditions (`UNSETTLED`, `UNKNOWN`) and one worked physical case, in the same shape as `electrical.py`.
-* hyperchemistry already asks the neighbouring question about composition: *when the same operations are wired differently, can their composite states differ?* Words of limits in different orders are an instance of exactly that, with limits as the operations. A later step could cite `limits.py` from `hyperchemistry/COMPOSITION_CONTRACT.md` as a second example beside the Boolean negations. That is hyperchemistry's call and is not proposed as part of this copy.
+* hyperchemistry already asks the neighbouring question about composition: *when the same operations are wired differently, can their composite states differ?* Limits in different orders are an instance of the shape. The exact finite counterpart now exists there: adding the universal quantifier beside the existential projection `compose` uses, the order of two projections is observable for exactly two relations on `B x B`, the identity and the negation the contract already uses. That model does not model limits (infinite domains are outside its envelope); the relation is recorded there as `[OPEN]`, HC-004.
 
-## To promote (needs your go-ahead to touch hyperphysics)
+## What was done on promotion (for the record)
 
-1. Copy `src/hyperphysics/limits.py` to `hyperphysics/src/hyperphysics/limits.py` and `tests/test_limits.py` to `hyperphysics/tests/test_limits.py`.
-2. Add the module to hyperphysics' README and an entry for it to `VALIDATION.md`, with the open obligations listed below.
-3. Run hyperphysics' full suite: `python -m pytest tests`.
-4. Re-run the mutation checks listed below on the promoted copy.
+1. Copied the two files into `hyperphysics`; ruff's import sorting changed one line of the test, and the same fix is applied here so the copies stay identical.
+2. Added a README section and a dated addendum to `VALIDATION.md` (the existing receipt was not edited). `__init__.py` does not re-export the module, so the manifest digest still describes the bytes it names; the new files are explicitly outside it.
+3. Ran hyperphysics' full suite and ruff.
+4. hyperchemistry's side is separate: `claude/projection-order-witness`, commit `9adb266`, a finite witness that the order of mixed projections matters (see the wiki page). **No pull request opened there either.**
 
 ## Evidence at this coordinate (hyperstratum `incubator/`, 18 tests, Python 3.11 and 3.10)
 

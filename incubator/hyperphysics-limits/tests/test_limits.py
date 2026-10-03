@@ -19,13 +19,12 @@ from hyperphysics.limits import (
     Word,
     all_orders,
     commutation,
-    decide,
     curie_weiss_magnetization,
+    decide,
     sequence_limit,
     to_infinity,
     to_zero,
 )
-
 
 # ----------------------------------------------------------------- labels
 
