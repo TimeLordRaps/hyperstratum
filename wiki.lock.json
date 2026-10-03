@@ -1,9 +1,19 @@
 {
   "refs": {
+    "hyperchemistry:README.md#L16-L17": {
+      "at": "hyperchemistry:README.md",
+      "pin": "ed32f5ee1026306bdf04894da200539fd4abc266",
+      "sha256": "ace7d3910f0898d5cdf950824fb73641b8d4ab0c33044376700a7a985925bebf"
+    },
     "hypermath:README.md#L1-L1": {
       "at": "hypermath:README.md",
       "pin": "dc89cbb4f154844ca4909d7c1c359ee3882323e2",
       "sha256": "d97ee16416f69290a529dc0663b654cd1bfe84d6f5b5490af2836d3bde6e491a"
+    },
+    "hyperphysics:FIELD_STACK.md#L11-L15": {
+      "at": "hyperphysics:FIELD_STACK.md",
+      "pin": "0425654cb78c96c4fb57d5e6455597cc4f73d8a4",
+      "sha256": "43306347c53a17500976f3bc7e0a2695498990b280a8f898cd0b1fffd9362047"
     },
     "hyperreality:FIELD_SPEC.md#L61-L66": {
       "at": "hyperreality:FIELD_SPEC.md",

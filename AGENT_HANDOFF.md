@@ -10,6 +10,8 @@ Updated 2026-10-03 (branch `claude/optimistic-einstein-3zorpo`).
 
 **Reproduce.** `git submodule update --init --depth 1 --jobs 8 && pip install -e ".[test]" && HYPERSTRATUM_REQUIRE_FIELDS=1 python -m pytest -vv -s --durations=10 --timeout=120 && python -m hyperstratum check`.
 
-**Audit state.** Technical-debt sniff-test checkpoint count: 2 (automations 1-3 added). Next due: after 3-7 checkpoints; draw recorded below.
+**Audit state.** Technical-debt sniff-test checkpoint count: 3 (limit-label method added; sniff audit due at checkpoint 5). Next due: after 3-7 checkpoints; draw recorded below.
 
 Next sniff audit due in 4 checkpoints (SystemRandom draw 2026-10-03), i.e. at checkpoint 5.
+
+**Limit labels (2026-10-03).** `incubator/hyperphysics-limits/` holds the order-of-limits method in hyperphysics' shape with its tests and `HANDOFF.md`. It is not in hyperphysics: promotion needs the owner's go-ahead to add that repository with push access. Wiki page: `wiki/limit-labels.md`.
