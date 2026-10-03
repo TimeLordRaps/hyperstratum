@@ -1,0 +1,143 @@
+[submodule "fields/ordinatics"]
+	path = fields/ordinatics
+	url = https://github.com/TimeLordRaps/ordinatics.git
+	branch = main
+	shallow = true
+
+[submodule "fields/metamathethicology"]
+	path = fields/metamathethicology
+	url = https://github.com/TimeLordRaps/metamathethicology.git
+	branch = main
+	shallow = true
+
+[submodule "fields/hypermath"]
+	path = fields/hypermath
+	url = https://github.com/TimeLordRaps/hypermath.git
+	branch = main
+	shallow = true
+
+[submodule "fields/grounded-hyperset-theory"]
+	path = fields/grounded-hyperset-theory
+	url = https://github.com/TimeLordRaps/grounded-hyperset-theory.git
+	branch = main
+	shallow = true
+
+[submodule "fields/grounded-hypercalculi"]
+	path = fields/grounded-hypercalculi
+	url = https://github.com/TimeLordRaps/grounded-hypercalculi.git
+	branch = main
+	shallow = true
+
+[submodule "fields/hyperphysics"]
+	path = fields/hyperphysics
+	url = https://github.com/TimeLordRaps/hyperphysics.git
+	branch = main
+	shallow = true
+
+[submodule "fields/hyperlogic"]
+	path = fields/hyperlogic
+	url = https://github.com/TimeLordRaps/hyperlogic.git
+	branch = main
+	shallow = true
+
+[submodule "fields/hypergrammar"]
+	path = fields/hypergrammar
+	url = https://github.com/TimeLordRaps/hypergrammar.git
+	branch = main
+	shallow = true
+
+[submodule "fields/hyperethics"]
+	path = fields/hyperethics
+	url = https://github.com/TimeLordRaps/hyperethics.git
+	branch = main
+	shallow = true
+
+[submodule "fields/hyperreality"]
+	path = fields/hyperreality
+	url = https://github.com/TimeLordRaps/hyperreality.git
+	branch = main
+	shallow = true
+
+[submodule "fields/hyperemergence"]
+	path = fields/hyperemergence
+	url = https://github.com/TimeLordRaps/hyperemergence.git
+	branch = main
+	shallow = true
+
+[submodule "fields/hyperchaos"]
+	path = fields/hyperchaos
+	url = https://github.com/TimeLordRaps/hyperchaos.git
+	branch = main
+	shallow = true
+
+[submodule "fields/hyperorder"]
+	path = fields/hyperorder
+	url = https://github.com/TimeLordRaps/hyperorder.git
+	branch = main
+	shallow = true
+
+[submodule "fields/verifier"]
+	path = fields/verifier
+	url = https://github.com/TimeLordRaps/verifier.git
+	branch = main
+	shallow = true
+
+[submodule "fields/throwaway-papers"]
+	path = fields/throwaway-papers
+	url = https://github.com/TimeLordRaps/throwaway-papers.git
+	branch = main
+	shallow = true
+
+[submodule "fields/speedrunning-social-development"]
+	path = fields/speedrunning-social-development
+	url = https://github.com/TimeLordRaps/speedrunning-social-development.git
+	branch = main
+	shallow = true
+
+[submodule "fields/meta-morphoscripted-origination"]
+	path = fields/meta-morphoscripted-origination
+	url = https://github.com/TimeLordRaps/meta-morphoscripted-origination.git
+	branch = main
+	shallow = true
+
+[submodule "fields/taxonomy-of-deception"]
+	path = fields/taxonomy-of-deception
+	url = https://github.com/TimeLordRaps/taxonomy-of-deception.git
+	branch = main
+	shallow = true
+
+[submodule "fields/hyperspace"]
+	path = fields/hyperspace
+	url = https://github.com/TimeLordRaps/hyperspace.git
+	branch = main
+	shallow = true
+
+[submodule "fields/hypertime"]
+	path = fields/hypertime
+	url = https://github.com/TimeLordRaps/hypertime.git
+	branch = main
+	shallow = true
+
+[submodule "fields/hypersubjectivity"]
+	path = fields/hypersubjectivity
+	url = https://github.com/TimeLordRaps/hypersubjectivity.git
+	branch = main
+	shallow = true
+
+[submodule "fields/hyperobjectivity"]
+	path = fields/hyperobjectivity
+	url = https://github.com/TimeLordRaps/hyperobjectivity.git
+	branch = main
+	shallow = true
+
+[submodule "fields/hyperchemistry"]
+	path = fields/hyperchemistry
+	url = https://github.com/TimeLordRaps/hyperchemistry.git
+	branch = main
+	shallow = true
+
+[submodule "fields/hyperprobability"]
+	path = fields/hyperprobability
+	url = https://github.com/TimeLordRaps/hyperprobability.git
+	branch = main
+	shallow = true

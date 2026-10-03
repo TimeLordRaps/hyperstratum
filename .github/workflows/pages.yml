@@ -41,6 +41,11 @@ jobs:
         with:
           ref: ${{ github.event.workflow_run.head_sha || github.sha }}
           persist-credentials: false
+          # hyperstratum: the wiki is built from the pinned hyperfields, and
+          # its citation audit needs this repository's history. Local edit to a
+          # shared template; see TECHNICAL_DEBT.md HS-003.
+          submodules: true
+          fetch-depth: 0
 
       - name: Require a successful conformance-gate for this exact commit
         id: qualify
@@ -107,6 +112,10 @@ jobs:
           python -m pip install --quiet "markdown==3.7"
           python .github/build_pages.py --output _site --keep-existing --source-ref "$SOURCE_SHA" --repository "$GITHUB_REPOSITORY"
           echo "[pages] built by $builder"
+          # hyperstratum: the wiki itself, then one link to it from the landing page.
+          python -m pip install --quiet .
+          python -m hyperstratum build --out _site/wiki --source-ref "$SOURCE_SHA" --landing _site/index.html
+          builder="$builder + hyperstratum wiki"
           digest=$(python .github/pages_manifest.py _site \
             --source-ref "$SOURCE_SHA" \
             --repository "$GITHUB_REPOSITORY" \

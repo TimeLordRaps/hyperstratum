@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hyperstratum"
+version = "0.2.0"
+description = "The dictionary, encyclopedia and wiki of the hyperfields, built live from pinned references to each hyperfield repository."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+# `markdown` renders authored pages. It is pinned to the version the Pages
+# workflow already installs so the two cannot disagree about output.
+dependencies = ["markdown==3.7"]
+
+[project.optional-dependencies]
+test = ["pytest", "pytest-timeout"]
+
+[project.scripts]
+hyperstratum = "hyperstratum.cli:console"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "tests"]

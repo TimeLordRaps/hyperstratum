@@ -1,0 +1,27 @@
+version: 2
+
+# The propagation lane. Each hyperfield is a git submodule under fields/, so
+# "something changed in a hyperfield" is exactly "a dependency edge has a newer
+# commit" -- which is what Dependabot's gitsubmodule ecosystem reports. The pull
+# request it opens runs wiki.yml, which rebuilds the wiki from the new pin,
+# re-resolves every live [[reference]] and re-audits every commit-pinned
+# citation, so a move, a rewrite or a deletion in any field is visible in review
+# before it reaches the published site.
+#
+# Faster lanes exist (see sync-fields.yml); this one needs no secret and is the
+# floor.
+updates:
+  - package-ecosystem: gitsubmodule
+    directory: /
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 30
+    labels: [fields]
+    commit-message:
+      prefix: "fields"
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    labels: [actions]

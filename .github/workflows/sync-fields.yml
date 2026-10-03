@@ -1,0 +1,73 @@
+name: sync-fields
+
+# The fast lane. A hyperfield repository can announce a change the moment it
+# lands (templates/notify-hyperstratum.yml sends the dispatch below); a schedule
+# is the backstop for a lost delivery. Either way the result is a pull request
+# that moves the pins, so the same wiki.yml review applies -- nothing here
+# publishes directly.
+#
+# A pull request opened with the default GITHUB_TOKEN does not start workflows.
+# Set the FIELDS_SYNC_TOKEN secret (a token that can open pull requests) so the
+# PR gets its checks; without it this job dispatches wiki.yml on the branch
+# itself, which is visible but is not a required status check.
+
+on:
+  repository_dispatch:
+    types: [field-updated]
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+
+concurrency:
+  group: sync-fields
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: true
+          fetch-depth: 0
+          token: ${{ secrets.FIELDS_SYNC_TOKEN || github.token }}
+      - name: Move every pin to its field's default-branch head
+        shell: bash
+        run: |
+          set -euo pipefail
+          git submodule update --init --remote --depth 1 --jobs 8
+          if git diff --quiet -- fields; then
+            echo "no hyperfield moved"
+            echo "MOVED=0" >> "$GITHUB_ENV"
+            exit 0
+          fi
+          git diff --submodule=log --stat -- fields | tee moved.txt
+          echo "MOVED=1" >> "$GITHUB_ENV"
+      - name: Open the pull request
+        if: env.MOVED == '1'
+        env:
+          GH_TOKEN: ${{ secrets.FIELDS_SYNC_TOKEN || github.token }}
+          PAYLOAD_FIELD: ${{ github.event.client_payload.field }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          branch="sync/fields-${GITHUB_RUN_ID}"
+          git config user.name "hyperstratum-sync"
+          git config user.email "hyperstratum-sync@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add fields
+          git commit -m "fields: move pins to current hyperfield heads" \
+                     -m "Triggered by ${GITHUB_EVENT_NAME}${PAYLOAD_FIELD:+ from ${PAYLOAD_FIELD}}."
+          git push origin "$branch"
+          gh pr create --base "${GITHUB_REF_NAME}" --head "$branch" \
+            --title "fields: move pins to current hyperfield heads" \
+            --body "$(printf 'Pins moved by sync-fields (%s).\n\n```\n%s\n```\n\nwiki.yml rebuilds the wiki from these pins; read its report before merging.' "$GITHUB_EVENT_NAME" "$(cat moved.txt)")"
+          if [ -z "${{ secrets.FIELDS_SYNC_TOKEN }}" ]; then
+            gh workflow run wiki.yml --ref "$branch"
+          fi

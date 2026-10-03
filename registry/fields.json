@@ -1,0 +1,131 @@
+{
+  "_comment": "What each repository IS. Pins come from git (fields/<name> gitlinks), never from this file. Taglines are the repositories' GitHub descriptions as supplied by the owner on 2026-10-03; an empty tagline means the repository has none.",
+  "fields": {
+    "ordinatics": {
+      "role": "foundation",
+      "role_source": "family-graph (docs/family/family-graph.json tier)",
+      "tagline": "Ordinal Arithmetic: An Ordinal-First Metalanguage Approach to Definable Arithmetic Truth"
+    },
+    "metamathethicology": {
+      "role": "combination",
+      "role_source": "family-graph (docs/family/family-graph.json tier)",
+      "tagline": "Metamath, Metaphysics, Metaethics, Metalogic all in one clear and comprehensive place"
+    },
+    "hypermath": {
+      "role": "foundation",
+      "role_source": "family-graph (docs/family/family-graph.json tier)",
+      "tagline": "A closed formal universe derived from one primitive operation, with a Lean translation and a reproducible audit that publishes its own open obligations."
+    },
+    "grounded-hyperset-theory": {
+      "role": "foundation",
+      "role_source": "family-graph (docs/family/family-graph.json tier)",
+      "tagline": "Extension of Hypermath and Ordinatics into Standard Hyperset Theory"
+    },
+    "grounded-hypercalculi": {
+      "role": "foundation",
+      "role_source": "family-graph (docs/family/family-graph.json tier)",
+      "tagline": "Because there are more calculi than just maths'"
+    },
+    "hyperphysics": {
+      "role": "applied",
+      "role_source": "family-graph (docs/family/family-graph.json tier)",
+      "tagline": "hypermath but for physics"
+    },
+    "hyperlogic": {
+      "role": "language",
+      "role_source": "family-graph (docs/family/family-graph.json tier)",
+      "tagline": "hypermath's logic counterpart"
+    },
+    "hypergrammar": {
+      "role": "language",
+      "role_source": "family-graph (docs/family/family-graph.json tier)",
+      "tagline": "the solution"
+    },
+    "hyperethics": {
+      "role": "applied",
+      "role_source": "family-graph (docs/family/family-graph.json tier)",
+      "tagline": "Hypermath for morals."
+    },
+    "hyperreality": {
+      "role": "unplaced",
+      "role_source": "family-graph (docs/family/family-graph.json tier)",
+      "tagline": "What a reality is, and which kinds of reality there are."
+    },
+    "hyperemergence": {
+      "role": "unplaced",
+      "role_source": "family-graph (docs/family/family-graph.json tier)",
+      "tagline": ""
+    },
+    "hyperchaos": {
+      "role": "unplaced",
+      "role_source": "family-graph (docs/family/family-graph.json tier)",
+      "tagline": ""
+    },
+    "hyperorder": {
+      "role": "unplaced",
+      "role_source": "family-graph (docs/family/family-graph.json tier)",
+      "tagline": ""
+    },
+    "verifier": {
+      "role": "substrate",
+      "role_source": "assigned in this registry; no earlier classification exists",
+      "tagline": "VSTD: portable, bounded, refutable evidence for computational claims and provenance graphs."
+    },
+    "throwaway-papers": {
+      "role": "companion",
+      "role_source": "assigned in this registry; no earlier classification exists",
+      "tagline": "Papers you should give me authorship for if you run with"
+    },
+    "speedrunning-social-development": {
+      "role": "companion",
+      "role_source": "assigned in this registry; no earlier classification exists",
+      "tagline": "How We Can Improve How We Improve"
+    },
+    "meta-morphoscripted-origination": {
+      "role": "companion",
+      "role_source": "assigned in this registry; no earlier classification exists",
+      "tagline": "The scripture that morphs to morph scriptures surround origination of narratives."
+    },
+    "taxonomy-of-deception": {
+      "role": "companion",
+      "role_source": "assigned in this registry; no earlier classification exists",
+      "tagline": "Taxonomy of Misrepresentation — representation before accusation, evidence before intent."
+    },
+    "hyperspace": {
+      "role": "unplaced",
+      "role_source": "family-graph (docs/family/family-graph.json tier)",
+      "tagline": "The axis of placement among observable realities, where hyperpheres may align without presuming passage."
+    },
+    "hypertime": {
+      "role": "unplaced",
+      "role_source": "family-graph (docs/family/family-graph.json tier)",
+      "tagline": "The axis of branching among reality presentations, where order need not become an outside clock."
+    },
+    "hypersubjectivity": {
+      "role": "unplaced",
+      "role_source": "family-graph (docs/family/family-graph.json tier)",
+      "tagline": "Situated perspective, cross-reality linkage, and candidate novelty from hyperobjects."
+    },
+    "hyperobjectivity": {
+      "role": "unplaced",
+      "role_source": "family-graph (docs/family/family-graph.json tier)",
+      "tagline": "Hyperobjects, hyperform instantiation, and invariance across situated reality presentations."
+    },
+    "hyperchemistry": {
+      "role": "unplaced",
+      "role_source": "family-graph (docs/family/family-graph.json tier)",
+      "tagline": "The operation of operations within hyperphysics, starting with finite, refutable composition."
+    },
+    "hyperbiology": {
+      "role": "declared",
+      "role_source": "family-graph (docs/family/family-graph.json tier)",
+      "tagline": "The study of the studies of how life interacts",
+      "pending": "repository has no commit on its default branch as of 2026-10-03 (git ls-remote returned nothing), so there is nothing to pin yet; run `git submodule add` once it has one"
+    },
+    "hyperprobability": {
+      "role": "applied",
+      "role_source": "family-graph (docs/family/family-graph.json tier)",
+      "tagline": "because sometimes things dont go your way, but how many of those times are guaranteed"
+    }
+  }
+}
