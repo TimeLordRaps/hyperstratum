@@ -49,6 +49,22 @@ The observability criterion that a lazy preality would have to meet is hyperspac
 * `[OPEN]` **Recreation** has at least three senses, and the stated good ("guaranteeing recreation of base realities through sempiternalities") needs one: *continuation* (same branch, round trip), *copy* (a new instance indistinguishable under every finite observation), or *restoration* (a base-reality whose volumetimeline has physically ended is re-established). The guarantee is strongest and hardest in the third.
 * `[OPEN]` **Do unvisited nodes already exist?** If the volumetimelinepossibility tree contains every branch, including those with an entrant, then entering selects an existing node. If preality is lazy, entering instantiates it. The moral weight of intrusion differs between the two; the choice is the lazy-versus-materialized question again.
 
+## What kind of infinite-time computer (2026-10-03, USER-STATED then analysed)
+
+Stated: the act is externally silent (taken here as "moot to the parent"), yet it provides an infinite-time computer. `[HYPER]`
+
+"Infinite time" has three readings that give different machines. The distinction is the order type of the interior time axis (`ω` is the order type of the natural numbers; dimensionless).
+
+* `[FORM]` **Order type `ω`: unbounded, with no "after".** Every step is finite and no moment follows them all. With unbounded interior memory this is an ordinary Turing machine: Turing-complete, no more. It never sees whether a program runs forever, because "forever" has no moment at which to be read. This is the reading in which the earlier finite-state argument leaves you.
+* `[FRAME]` **A limit stage exists (order type at least `ω+1`).** The machine's state at time `ω` is defined from the earlier ones, as in the infinite-time Turing machine (ITTM) of Hamkins and Lewis (recalled, not retrieved): cells at a limit take the limit-superior of their earlier values. Such a machine decides the halting problem of ordinary Turing machines and goes further as the ordinals allowed go higher. This is where ordinatics' ordinal-first approach and the hyperarithmetic and hypercomputational vocabulary already in the fields (candidate terms) apply.
+* `[FRAME]` **An outside reader.** If the exterior receives the interior's whole infinite history within finite exterior time, the exterior can read a limit-stage result. Spacetimes built so that a signal from an infinite process reaches an observer in finite proper time are called Malament–Hogarth spacetimes (recalled, not retrieved). Finite volume with infinite internal time, seen from outside in finite time, has exactly that shape.
+
+Consequences for the stated model:
+
+* `[OPEN]` To get beyond Turing computability the interior time needs a limit stage, not only unbounded duration; unbounded volume and unbounded duration alone give Turing-complete computing. The earlier line "novelty needs unbounded interior memory as well as unbounded time" is therefore a necessary condition for exceeding finite automata, not a sufficient one for exceeding Turing machines.
+* `[OPEN]` "Arrive right after we left" needs the departure to happen after the interior's infinite time. That is an interior time of order type at least `ω+1`, with the entrants living through the limit. The home return is only available under the second or third reading.
+* `[OPEN]` Who reads the result: the entrants (they must pass the limit and exit) or the exterior (it must receive the infinite history). The ethics and the branch-insertion analysis differ between the two.
+
 ## Open
 
 * `[OPEN]` Is a preality a simulation, or is it identical to the base-reality it simulates? Teleportation into one is entry into the base-reality only if identity holds, which is hyperobjectivity's question. Needs a definition before it can be tested.
