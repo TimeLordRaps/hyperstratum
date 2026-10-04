@@ -48,3 +48,22 @@ def test_conatural_top_kernel_checked():
     # only the finite-or-top dichotomy needs classical choice: that is the LPO residue
     assert "Classical.choice" in deps["finite_or_top"]
     assert all("Classical.choice" not in v for k, v in deps.items() if k != "finite_or_top")
+
+
+def test_reality_class_mapping_against_the_hyperreality_registry():
+    r = subprocess.run([sys.executable, "reality_classes.py"], cwd=HERE, capture_output=True, text=True, timeout=120)
+    print(r.stdout, r.stderr)
+    assert r.returncode == 0, r.stderr[-600:]
+    for tag in ("1. ", "2. ", "3a. ", "3b. ", "3c. ", "3d. "):
+        assert any(ln.startswith(tag) for ln in r.stdout.splitlines()), tag
+
+
+def test_a_one_sided_loop_is_not_bisimilar_to_the_self_containing_top(tmp_path):
+    bad = (HERE / "reality_classes.py").read_text(encoding="utf-8").replace(
+        'hr.Containment("U2", "S"), hr.Containment("U2", "U1")),\n)\nassert not', 'hr.Containment("U2", "U1")),\n)\nassert not', 1)
+    assert bad != (HERE / "reality_classes.py").read_text(encoding="utf-8")
+    p = tmp_path / "bad.py"
+    p.write_text(bad.replace('ROOT = pathlib.Path(__file__).resolve().parents[2]', f'ROOT = pathlib.Path({str(HERE.parents[1])!r})'),
+                 encoding="utf-8")
+    r = subprocess.run([sys.executable, str(p)], capture_output=True, text=True, timeout=120)
+    assert r.returncode != 0 and "AssertionError" in r.stderr

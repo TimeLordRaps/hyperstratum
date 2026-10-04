@@ -7,3 +7,11 @@
 
 Run: `HM_LEAN=… python -m pytest tests -vv -s`. Mutation gate: weakening the GL rule to the K rule loses both Löb and axiom 4. (Dropping only the added □A makes the search non-terminating: that premise is what both proves Löb and bounds the search.)
 Literature cited from memory: Solovay 1976 (GL arithmetically complete), LaVictoire et al. 2014 (program equilibrium via provability logic).
+
+## Added: the reality-class mapping against hyperreality's registry
+
+`reality_classes.py` builds the owner's mapping (base ← normal/rational/irrational, surreality ← surreal, areality ← imaginary,
+sempiternality ⊃ the realities, universempiternality self-containing) as a `hyperreality.Registry` (imported read-only from
+`fields/hyperreality`). Findings: expressible; kinds stay unordered although the number classes nest; the registry refuses the
+one-node loop U ∋ U (direct self-containment) but accepts the two-node loop, which is not well-founded and is bisimilar to the
+one-node loop (partition refinement). A one-sided loop is not bisimilar (negative control).
