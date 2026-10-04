@@ -5,10 +5,25 @@
       "pin": "ed32f5ee1026306bdf04894da200539fd4abc266",
       "sha256": "ace7d3910f0898d5cdf950824fb73641b8d4ab0c33044376700a7a985925bebf"
     },
+    "hypermath:L3_ordinatics.hm#L130-L130": {
+      "at": "hypermath:L3_ordinatics.hm",
+      "pin": "dc89cbb4f154844ca4909d7c1c359ee3882323e2",
+      "sha256": "d1593bcf4754335a982080596cf6d7089e0cd3e7af886b0ffaa6397d80a1e389"
+    },
     "hypermath:README.md#L1-L1": {
       "at": "hypermath:README.md",
       "pin": "dc89cbb4f154844ca4909d7c1c359ee3882323e2",
       "sha256": "d97ee16416f69290a529dc0663b654cd1bfe84d6f5b5490af2836d3bde6e491a"
+    },
+    "hypermath:lean4/FiniteActionCountermodel.lean#L66-L68": {
+      "at": "hypermath:lean4/FiniteActionCountermodel.lean",
+      "pin": "dc89cbb4f154844ca4909d7c1c359ee3882323e2",
+      "sha256": "21bdb468ea510e0dc9e7c96079cf81dcab053622263f8279267ed175c58fe420"
+    },
+    "hypermath:lean4/Hypermath/L3Ordinatics.lean#L54-L54": {
+      "at": "hypermath:lean4/Hypermath/L3Ordinatics.lean",
+      "pin": "dc89cbb4f154844ca4909d7c1c359ee3882323e2",
+      "sha256": "7bd1abb65d9ed3107ff2d1f546b316c60ebdb8ebbc865170eddcab268f1b7aa8"
     },
     "hyperphysics:FIELD_STACK.md#L11-L15": {
       "at": "hyperphysics:FIELD_STACK.md",
