@@ -34,3 +34,27 @@ def test_a_non_wellfounded_order_is_rejected(tmp_path):
     p.write_text(bad, encoding="utf-8")
     code, out = lean(p)
     assert code != 0 and "error" in out
+
+
+def test_fundamental_sequences_descent_into_naturals():
+    r = subprocess.run([sys.executable, str(HERE / "fundamental.py")], capture_output=True, text=True, timeout=300)
+    print(r.stdout, r.stderr)
+    assert r.returncode == 0
+    assert "closed forms H_ω=2n, H_ω·2=4n, H_ω²=n·2^n verified" in r.stdout
+    assert "H_ω^3(2) = 2048" in r.stdout and "exceeds 10^7 steps" in r.stdout
+
+
+@pytest.mark.skipif(not LEAN, reason="no lean (set HM_LEAN)")
+def test_omegas_rank_order_kernel_checked_and_a_weak_order_is_rejected(tmp_path):
+    code, out = lean(HERE / "RankOrder.lean")
+    print(out)
+    assert code == 0 and not re.search(r"\berror\b", out) and "sorry" not in out
+    assert "∨ True" not in (HERE / "RankOrder.lean").read_text(encoding="utf-8")  # no vacuous disjunct
+    assert sum("axioms" in ln for ln in out.splitlines()) == 5
+    bad = (HERE / "RankOrder.lean").read_text(encoding="utf-8").replace(
+        "| k + 1, (a, x), (b, y) => a < b ∨ (a = b ∧ lt k x y)",
+        "| k + 1, (a, x), (b, y) => a ≤ b ∨ (a = b ∧ lt k x y)")
+    p = tmp_path / "Bad.lean"
+    p.write_text(bad, encoding="utf-8")
+    code, out = lean(p)
+    assert code != 0 and "error" in out
