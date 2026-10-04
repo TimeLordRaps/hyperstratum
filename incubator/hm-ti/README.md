@@ -19,3 +19,12 @@ Run: `HM_LEAN=… python -m pytest tests -vv -s`.
   `omega_cofinal` every element is below some ω^j, so ω^ω is the supremum of the omegas and none of them.
 * `fundamental.py`: ω^ω[n] = ω^n, ω^k[n] = ω^(k-1)·n, … down to the naturals (Hardy hierarchy). Verified H_ω = 2n,
   H_ω·2 = 4n, H_ω² = n·2^n; H_ω³(2) = 2048; H_ω⁴(2) exceeds 10^7 steps (terminates by ladder induction, length explodes).
+
+## Added: the exponent axis under ordinatics' value map
+
+`exponent_axis.py` (exact sympy plus one numeric phase check, a map without the imaginary branch is rejected): with
+ordinatics' ω ↦ −1/2 and one fixed logarithm, W(ω^r) has modulus 2^(−r) and phase πr. Verified: exponents add and values
+multiply; order survives, reversed, in the modulus (so the map is injective on exponents); the classes by phase are
+integer r → real axis, half-odd r → imaginary axis, other rational r → finite-order phase (periodic under repeated
+multiplication), irrational r → infinite-order phase (by argument, not by computation). The image is one-dimensional
+(a logarithmic spiral): an independent surreal-component × imaginary-component product needs a *complex* exponent a+bi.

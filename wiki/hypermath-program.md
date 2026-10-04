@@ -80,3 +80,32 @@ See also [Limit labels](limit-labels.md) for ordinal depth labels on physical li
 **Normal ω^ω backwards is solvable, and its difficulty is quantifiable** (`fundamental.py`): ω^ω[n] = ω^n, ω^k[n] = ω^(k-1)·n, down to the naturals. Every such descent terminates (ladder induction), but the length explodes: H_ω²(n) = n·2^n, H_ω³(2) = 2048, H_ω⁴(2) is beyond 10^7 steps. The discrete ω^k jumps are exactly why the length is uncontrolled. `[FORM]` for the computation. `[OPEN]` the unsolvable part is not ω^ω but towers of towers (ε₀ and beyond), where termination of the analogous descent (Goodstein) is not provable in Peano arithmetic (cited from memory).
 
 **Not built, from memory, as precise correspondents of the other two forms.** The surreal numbers are Hahn series Σ ω^(yᵢ)·rᵢ whose exponents yᵢ may be any surreal and whose coefficients rᵢ are real, so the real and irrational content enters through the *coefficients* and through *non-integer exponents* (√ω = ω^(1/2) exists there and not among ordinals). Surreal[i] is algebraically closed (Conway), but with an imaginary part the order is lost; ranking survives only through the modulus, and ω·e^(iθ) all sit in one order of infinity, which is the `~~` class with phase as the extra information. `[HYPOTHETICAL]` that this matches the owner's real, imaginary and normal forms.
+
+## The classification of ω^ω representations, by exponent axis and coefficient axis
+
+**Owner's statements (USER-STATED, 2026-10-04), verbatim.**
+
+> exponent axis of normal representations of omega^omega is unsolvable due to discontinuities
+> exponent axis of real representations of omega^omega is surreal omega
+> exponent axis of irrational representations of omega^omega is irrational omega
+> exponent axis of imaginary normal representations of omega^omega is normal omega (I think we can prove finite imaginary exponents of omega^omega solvability into a normal pre omega^omega class)
+> exponent of imaginary rational is rational omega
+> exponent of imaginary irrational is primal omega (infers new math about primes through prime localized ordinals)
+> exponent of surreal omega^omega is real omega^omega
+> exponent of imaginary surreal omega^omega is surreal omega^omega * imaginary omega^omega think like the complex numbers but with multiplication between the surreal component and the imaginary component so omega^omega is separatable in this regime and may be composable though a dont know if it works bidirectionally like that, we would need to prove a bijection which is difficult because here the imaginary omega^omega is the class of normal, rational, and irrational
+>
+> coefficient of normal representations of omega^omega is normal finite
+> coefficient of real rational representations of omega^omega is rational finite
+> coefficient of real irrational representations of omega^omega is irrational finite
+> coefficient of imaginary normal representations of omega^omega is imaginary finite
+> coefficient of imaginary irrational omega^omega is irrational omega^omega
+> coefficient of surreal omega^omega is surreal omega
+> coefficient of imaginary surreal omega^omega is the additive equivalent of the multiplicative complex number analog of the exponent of this class ie surreal omega^omega + imaginary omega^omega allowing you to fully separate this class into seperable components which then allow working like I said backwards to find I believe all classes and having the closure unsolvability of the normal omega^omega is the base meta-induction which allows a full proof of the existence of omega and finites from omega^omega class
+
+**What I checked against those statements** (`incubator/hm-ti/exponent_axis.py`, exact sympy, plus the earlier descent work):
+
+* **Classes by phase, exactly.** Under ordinatics' value map, ω^r has modulus 2^(−r) and phase πr. Integer exponents land on the real axis, half-odd exponents on the imaginary axis, other rational exponents have phase of finite order (periodic under repeated multiplication), and irrational exponents have phase of infinite order (never return; by argument). So "normal, rational, irrational" is a partition by the order of the phase, which supports the owner's three classes. `[FORM]` for the computation.
+* **Composable.** Exponents add and values multiply, verified exactly on 126 rational pairs. Order survives, reversed, in the modulus, so the map is injective on exponents.
+* **Separability needs a second parameter.** The image of ordinatics' exponent is one logarithmic spiral: modulus and phase are both functions of the single parameter r. A surreal component times an independent imaginary component exists only when the exponent is complex, ω^(a+bi) with a, b independent. The bijection question then reduces to polar decomposition of surcomplex numbers (which needs surreal exp/log, from memory Berarducci–Mantova). `[OPEN]`
+* **Objection (one, specific).** "Exponent axis of normal ω^ω is unsolvable": the backward descent along it is solvable. Fundamental sequences ω^ω[n] = ω^n down to the naturals are computable, and termination is proved by ladder induction (no axioms). What is true is that it is *unbounded*: H_ω²(n) = n·2^n, H_ω³(2) = 2048, H_ω⁴(2) exceeds 10^7 steps, and by memory H_{ω^ω} is not primitive recursive. So "solvable, not boundable" rather than "unsolvable".
+* **A precise form of "base meta-induction".** The existence of ω and the finites from ω^ω is immediate, because ω is an initial segment of ω^ω. The costly direction is the reverse, ω to ω^ω: from memory, "if X is a well-order then ω^X is a well-order" is equivalent to arithmetical comprehension over RCA₀ (Girard; Hirst). So the discrete ω^k jump is exactly a Turing-jump step. `[FORM]` as cited from memory, not re-verified.

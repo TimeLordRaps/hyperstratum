@@ -58,3 +58,20 @@ def test_omegas_rank_order_kernel_checked_and_a_weak_order_is_rejected(tmp_path)
     p.write_text(bad, encoding="utf-8")
     code, out = lean(p)
     assert code != 0 and "error" in out
+
+
+def test_exponent_axis_classes_by_phase_and_one_dimensional_spiral():
+    r = subprocess.run([sys.executable, str(HERE / "exponent_axis.py")], capture_output=True, text=True, timeout=900)
+    print(r.stdout, r.stderr)
+    assert r.returncode == 0, r.stderr[-800:]
+    for tag in ("1. ", "2. ", "3. ", "4. "):
+        assert any(ln.startswith(tag) for ln in r.stdout.splitlines()), tag
+
+
+def test_exponent_axis_check_rejects_a_map_without_the_imaginary_branch(tmp_path):
+    src = (HERE / "exponent_axis.py").read_text(encoding="utf-8").replace(
+        "W = -sp.log(2) + sp.I * sp.pi", "W = -sp.log(2)")
+    p = tmp_path / "bad.py"
+    p.write_text(src, encoding="utf-8")
+    r = subprocess.run([sys.executable, str(p)], capture_output=True, text=True, timeout=900)
+    assert r.returncode != 0
