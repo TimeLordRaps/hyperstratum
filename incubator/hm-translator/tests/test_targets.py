@@ -1,9 +1,6 @@
 import os
-import pathlib
 import re
 import shutil
-import subprocess
-import sys
 
 import pytest
 
@@ -149,3 +146,53 @@ def test_l0_vocabulary_and_axioms_match_the_hand_written_lean():
         assert ours[name] == hand[name], name
     for name in ("axDiff", "axSim", "axBox", "axGroundSelf"):
         assert ours[name].replace("∀ (x : Form),", "∀ x : Form,") == hand[name], name
+
+
+def test_translated_close_becomes_a_named_lean_axiom_and_a_metamath_statement():
+    src = L0 + "\nclose struct-distinct as not-simulation:\n    struct-distinct(x, y) <-> not (x == y)\n"
+    src = src.replace("relation Similar :: Form -> Form -> Prop   -- (~~)", "relation Similar :: Form -> Form -> Prop   -- (~~)\nrelation Simulation :: Form -> Form -> Prop   -- (==)")
+    p = project.analyze([("l0.hm", src)])
+    t = lean.emit(p).text
+    assert "axiom closeStructDistinct : ∀ (x : Form) (y : Form), structDistinct x y ↔ ¬ (Simulation x y)" in t
+    assert t.count("axiom structDistinct :") == 1  # the close must not shadow the predicate
+    base, ctx = metamath.build(p)
+    assert "ax.close-struct-distinct $a |-" in base
+
+
+def test_lint_groups_undeclared_words_with_locations():
+    from hmtrans import lint
+    src = L0 + "\naxiom ax-bad:\n    for-all x :: Form:\n        struct-distinct(mystery(x), ground)\n"
+    rep = lint.lint(project.analyze([("l0.hm", src)]))
+    assert "mystery" in rep["undeclared_words"]
+    assert rep["undeclared_words"]["mystery"][0][3] == "ax-bad"
+    assert "mystery" in lint.format_report(rep)
+
+
+def test_lint_separates_references_to_other_blocks_from_undeclared_operations():
+    from hmtrans import lint
+    src = L0 + "\nderive d-ref as FORM:\n    step 1: ax-diff with x := ground\n            -> struct-distinct(apply(ground), ground)\n    close: d-inst\n"
+    src = src.replace("derive d-ref", "derive d-inst as FORM:\n    step 1: ax-diff with x := ground\n            -> struct-distinct(apply(ground), ground)\n    close: struct-distinct(apply(ground), ground)\nderive d-ref")
+    rep = lint.lint(project.analyze([("l0.hm", src)]))
+    assert "d-inst" in rep["close_names_a_block"] and "d-inst" not in rep["undeclared_words"]
+
+
+def test_drift_reads_sorry_from_lean_text():
+    from hmtrans import drift
+    p = proj()
+    lean_txt = ("theorem dInst : True := trivial\n\n"
+                "-- a comment mentioning sorry\n"
+                "theorem dUnproved : True := by\n  sorry\n")
+    rows = {r["derive"]: r for r in drift.drift(p, [lean_txt])}
+    assert rows["d-inst"]["lean"] == "proved" and not rows["d-inst"]["disagrees"]
+    assert rows["d-unproved"]["lean"] == "sorry" and rows["d-unproved"]["disagrees"]
+    assert drift.drift(p, [""])[0]["lean"] == "missing"
+
+
+def test_drift_flags_a_claim_the_repo_itself_refutes_in_a_countermodel():
+    from hmtrans import drift
+    src = L0 + "\nderive d-claim as FORM:\n    step 1: ax-diff with x := ground\n            -> struct-distinct(apply(ground), ground)\n    close: struct-distinct(apply(ground), ground)\n"
+    p = project.analyze([("l0.hm", src)])
+    lean_txt = ("theorem dClaim : True := trivial\n"
+                "def dClaimClaim : Prop := True\ntheorem x_fails : ¬ dClaimClaim := by sorry\n")
+    row = [r for r in drift.drift(p, [lean_txt]) if r["derive"] == "d-claim"][0]
+    assert row["lean"] == "refuted-in-countermodel" and row["disagrees"]

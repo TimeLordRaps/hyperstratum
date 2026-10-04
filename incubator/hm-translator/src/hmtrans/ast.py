@@ -45,26 +45,26 @@ class Not:
 
 @dataclass(frozen=True)
 class And:
-    l: object
-    r: object
+    left: object
+    right: object
 
 
 @dataclass(frozen=True)
 class Or:
-    l: object
-    r: object
+    left: object
+    right: object
 
 
 @dataclass(frozen=True)
 class Implies:
-    l: object
-    r: object
+    left: object
+    right: object
 
 
 @dataclass(frozen=True)
 class Iff:
-    l: object
-    r: object
+    left: object
+    right: object
 
 
 @dataclass(frozen=True)

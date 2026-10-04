@@ -79,7 +79,7 @@ def test_derive_whose_close_is_not_a_proposition_is_untranslated():
 
 def test_close_and_graduation_are_untranslated_with_reasons():
     e = entries()
-    assert e["struct-continues"].status == "untranslated" and e["struct-continues"].reason
+    assert e["close-struct-continues"].status == "untranslated" and e["close-struct-continues"].reason
     assert e["graduation"].status == "untranslated" and "graduation" in e["graduation"].reason
 
 
@@ -93,3 +93,31 @@ def test_undeclared_infix_word_is_flagged_as_a_source_defect():
           "axiom s:\n    for-all a :: Form:\n        congruent(a plus ground, a)\n"
     e = {x.name: x for x in project.analyze([("t.hm", src)]).entries}["s"]
     assert e.status == "untranslated" and "plus" in e.reason
+
+
+CLOSE_SRC = L0 + """
+close struct-distinct as not-simulation:
+    -- prose stays documentation
+    struct-distinct(x, y) <-> not (x ~~ y)
+
+close struct-continues as similar:
+    -- comments only: stays untranslated
+"""
+
+
+def test_close_with_a_formula_line_is_translated_with_inferred_universal_binders():
+    from hmtrans.ast import Forall
+    e = {x.name: x for x in project.analyze([("l0.hm", CLOSE_SRC)]).entries}
+    c = e["close-struct-distinct"]
+    assert c.status == "translated" and c.kind == "close"
+    assert isinstance(c.expr, Forall) and dict(c.expr.binders) == {"x": "Form", "y": "Form"}
+    assert e["close-struct-continues"].status == "untranslated"
+
+
+def test_close_formula_with_an_ambiguous_variable_sort_is_refused():
+    src = L0 + "\nclose struct-distinct as z:\n    x ~~ x\n"
+    e = {x.name: x for x in project.analyze([("l0.hm", src)]).entries}
+    assert e["close-struct-distinct"].status == "translated"  # x only in Form positions: fine
+    src = L0 + "\nopaque other :: Form -> Form -> Prop\nclose other as z:\n    other(x, y) <-> mystery(x)\n"
+    e = {x.name: x for x in project.analyze([("l0.hm", src)]).entries}
+    assert e["close-other"].status == "untranslated" and "mystery" in e["close-other"].reason

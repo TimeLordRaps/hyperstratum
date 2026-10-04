@@ -311,7 +311,7 @@ def free_names(e, bound: frozenset = frozenset()) -> set:
     if isinstance(e, Not):
         return free_names(e.e, bound)
     if isinstance(e, (And, Or, Implies, Iff)):
-        return free_names(e.l, bound) | free_names(e.r, bound)
+        return free_names(e.left, bound) | free_names(e.right, bound)
     if isinstance(e, (Forall, Exists)):
         inner = bound | {n for n, _ in e.binders}
         out = free_names(e.body, inner)

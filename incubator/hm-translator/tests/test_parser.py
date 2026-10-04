@@ -1,5 +1,5 @@
 from hmtrans import parser
-from hmtrans.ast import Axiom, Close, Derive, Opaque, Primitive, Raw, Relation
+from hmtrans.ast import Axiom, Close, Derive, Raw, Relation
 
 SRC = """\
 -- banner comment

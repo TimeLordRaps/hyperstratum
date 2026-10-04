@@ -71,7 +71,7 @@ class Builder:
             return e.name
         if type(e) in CONN:
             _, sym, n = CONN[type(e)]
-            kids = [e.e] if n == 1 else [e.l, e.r]
+            kids = [e.e] if n == 1 else [e.left, e.right]
             return "( " + (sym + " " if n == 1 else "") + (f" {sym} ".join(self.wff(k, env) for k in kids) if n == 2
                                                            else self.wff(kids[0], env)) + " )"
         raise Omit("nested quantifier" if isinstance(e, (Forall, Exists)) else type(e).__name__)
@@ -101,7 +101,6 @@ def build(proj) -> tuple[str, dict]:
         params, res = sorts_of(sig)
         label = f"sy.{name}"
         labels[name] = label
-        hyps = []
         names = []
         for i, p in enumerate(params):
             sym = b.var(f"a{i}", p)
@@ -139,7 +138,7 @@ def build(proj) -> tuple[str, dict]:
     # statements
     stated: dict[str, tuple] = {}  # axiom name -> (label, env, ordered vars)
     for idx, e in enumerate(proj.entries):
-        if e.kind != "axiom" or e.status != "translated":
+        if e.kind not in ("axiom", "close") or e.status != "translated":
             continue
         try:
             stmt, env = b.statement(e.expr)
@@ -162,7 +161,6 @@ def build(proj) -> tuple[str, dict]:
 
 
 def _term_proof(e, env, ctx) -> list[str]:
-    b = ctx["b"]
     if isinstance(e, Name):
         if e.name in env:
             raise Omit("free variable in instance")

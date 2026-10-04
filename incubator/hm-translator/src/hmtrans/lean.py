@@ -79,7 +79,7 @@ def render(e, nm: Namer, prec: int = 0) -> str:
     ops = {And: (35, "∧"), Or: (30, "∨"), Implies: (25, "→"), Iff: (20, "↔")}
     if type(e) in ops:
         p, sym = ops[type(e)]
-        s = f"{render(e.l, nm, p + 1)} {sym} {render(e.r, nm, p if isinstance(e, Implies) else p + 1)}"
+        s = f"{render(e.left, nm, p + 1)} {sym} {render(e.right, nm, p if isinstance(e, Implies) else p + 1)}"
         return f"({s})" if prec > p else s
     if isinstance(e, (Forall, Exists)):
         q = "∀" if isinstance(e, Forall) else "∃"
@@ -167,8 +167,8 @@ def emit(proj, namespace: str = "Hypermath", demoted: dict | None = None, no_pro
                 res.spans.append((len(out) + 1, len(out) + 1, idx))
                 out.append(f'scoped notation:50 a " {shown} " b => {nm(d.name)} a b')
                 out.append("")
-        elif e.kind == "axiom":
-            put(idx, f"{_doc(d.doc)}axiom {nm(d.name)} : {render(e.expr, nm)}")
+        elif e.kind in ("axiom", "close"):
+            put(idx, f"{_doc(d.doc)}axiom {nm(e.name)} : {render(e.expr, nm)}")
         elif e.kind == "derive":
             term = None if idx in no_proof else instance_term(e, proj, nm, by_name)
             proof = term if term else "by sorry"

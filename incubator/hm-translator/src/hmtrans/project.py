@@ -37,6 +37,41 @@ class Project:
     sorts: set = field(default_factory=set)
 
 
+def _infer_sorts(e, free: list, sigs: dict):
+    """Sort of each free variable, read off the parameter position it first occupies.
+
+    Returns (sorts, None) or ({}, reason) when a variable occurs in no typed position or in
+    two positions of different sorts: the translator never guesses a sort.
+    """
+    from .ast import And, App, Iff, Implies, Not, Or
+
+    found: dict = {}
+    clash: list = []
+
+    def walk(x):
+        if isinstance(x, App):
+            sig = sigs.get(x.fn)
+            for i, a in enumerate(x.args):
+                if isinstance(a, Name) and a.name in free and sig and i < len(sig.params):
+                    old = found.setdefault(a.name, sig.params[i])
+                    if old != sig.params[i]:
+                        clash.append(a.name)
+                walk(a)
+        elif isinstance(x, Not):
+            walk(x.e)
+        elif isinstance(x, (And, Or, Implies, Iff)):
+            walk(x.left)
+            walk(x.right)
+
+    walk(e)
+    if clash:
+        return {}, f"variable {clash[0]!r} is used at two different sorts"
+    missing = [n for n in free if n not in found]
+    if missing:
+        return {}, f"cannot infer a sort for variable {missing[0]!r}"
+    return found, None
+
+
 def sha256(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
@@ -72,7 +107,7 @@ def check_expr(e, sigs: dict, sorts: set, bound: frozenset = frozenset()) -> str
     if isinstance(e, Not):
         return check_expr(e.e, sigs, sorts, bound)
     if isinstance(e, (And, Or, Implies, Iff)):
-        return check_expr(e.l, sigs, sorts, bound) or check_expr(e.r, sigs, sorts, bound)
+        return check_expr(e.left, sigs, sorts, bound) or check_expr(e.right, sigs, sorts, bound)
     if isinstance(e, (Forall, Exists)):
         for n, t in e.binders:
             if t not in sorts and t not in BUILTIN_SORTS:
@@ -165,9 +200,24 @@ def _entry(d, proj: Project, by_name: dict) -> Entry:
         return Entry("derive", d.name, status="admitted", expr=body,
                      proof=_instance_proof(d, by_name), **base)
     if isinstance(d, Close):
-        why = "the semantic content is in comments only; the block has no code" if not d.body_text.strip() \
-            else "the close is stated in prose, not as a formula"
-        return Entry("close", d.target, status="untranslated", reason=why, **base)
+        name = f"close-{d.target}"
+        if not d.body_text.strip():
+            return Entry("close", name, status="untranslated",
+                         reason="the semantic content is in comments only; the block has no code", **base)
+        try:
+            body = ex.parse_statement(d.body_text, proj.infix, {n: len(s.params) for n, s in proj.sigs.items()})
+        except ex.ExprError as err:
+            return Entry("close", name, status="untranslated",
+                         reason=f"the close is stated in prose, not as a formula: {err}", **base)
+        free = sorted(n for n in ex.free_names(body) if n not in proj.sigs)
+        sorts, why = _infer_sorts(body, free, proj.sigs)
+        if why is None:
+            why = check_expr(body, proj.sigs, proj.sorts, frozenset(free))
+        if why:
+            return Entry("close", name, status="untranslated",
+                         reason=f"the close formula is not in the declared vocabulary: {why}", **base)
+        stmt = Forall(tuple((n, sorts[n]) for n in free), None, body) if free else body
+        return Entry("close", name, status="translated", expr=stmt, **base)
     if isinstance(d, Raw):
         why = {"graduation": "graduation criteria are meta-level statements about layers, not formulas"}.get(
             d.kind, f"`{d.kind}` blocks are not modelled by the translator")

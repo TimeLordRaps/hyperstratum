@@ -8,18 +8,34 @@ import subprocess
 import sys
 from pathlib import Path
 
-from . import lean, metamath, project, receipt
+from . import lean, lint, metamath, project, receipt
 
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(prog="hmtrans", description=__doc__)
     ap.add_argument("files", nargs="+", type=Path)
-    ap.add_argument("--out", type=Path, required=True)
+    ap.add_argument("--out", type=Path)
     ap.add_argument("--lean", help="path to a `lean` binary; enables kernel checking")
     ap.add_argument("--mmverify", help="path to mmverify.py; enables Metamath output")
     ap.add_argument("--namespace", default="Hypermath")
-    a = ap.parse_args(argv)
+    ap.add_argument("--lint", action="store_true", help="print source defects and exit; --out not required")
+    ap.add_argument("--drift", type=Path, metavar="LEAN_DIR",
+                    help="compare each derive's tag with hand-written Lean files in LEAN_DIR; print and exit")
+    a, _ = ap.parse_known_args(argv)
     proj = project.analyze([(f.name, f.read_text(encoding="utf-8")) for f in a.files])
+    if a.drift:
+        from . import drift
+        rows = drift.drift(proj, [p.read_text(encoding="utf-8") for p in sorted(a.drift.rglob("*.lean")) if ".lake" not in p.parts])
+        for r in rows:
+            mark = "DISAGREES" if r["disagrees"] else "ok"
+            print(f"{mark:9s} {r['file']}:{r['line']:<4d} {r['derive']:36s} .hm={r['hm_tag']:5s} lean={r['lean']}")
+        print(drift.summary(rows))
+        return 0
+    if a.lint:
+        print(lint.format_report(lint.lint(proj)))
+        return 0
+    if a.out is None:
+        ap.error("--out is required unless --lint is given")
     a.out.mkdir(parents=True, exist_ok=True)
     lean_text, log, ver = None, [], None
     if a.lean:
