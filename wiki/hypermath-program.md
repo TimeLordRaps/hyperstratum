@@ -155,3 +155,31 @@ That condition is only what *bisimilarity* of S and U would require, not a requi
 So the two words now do different jobs, and this wiki follows that: a **sempiternity** is the object, the whole that contains the realities; **sempiternality** is the property it holds, the class an object belongs to. That supersedes the single-spelling wording of the naming note above in one respect: it keeps the property term instead of dropping it. Hyperreality's registry already has the matching shape: a `Whole` is an instance of a class, and the incubator model now declares the object S as a sempiternity whose class is `sempiternality` (checked in `reality_classes.py`, which imports hyperreality read-only). The same split applies by analogy to the self-containing top, a universempiternity holding universempiternality; the owner did not state that case, so it is `[HYPOTHETICAL]`.
 
 **Consequence for the pinned repositories.** Their existing uses of "sempiternality" and "universempiternality" mostly name the object, so a rename there is not a mechanical substitution: each occurrence must be judged object or property. It still needs the owner to name each repository and say push (HS-027).
+
+## Sempiternity is unbounded in time; temporal and atemporal counterparts; seed physics
+
+**Owner's statements (USER-STATED, 2026-10-05), verbatim.**
+
+> sempiternity is unbounded in time, preality, surreality, and base-reality each have atemporal counterparts, surrealities atemporal counterpart is dream architecting while temporal surreality is first pov dreaming, atemporal preality is where the laws of our base-realities temporal and retrocausality exist in representable forms, otherwise our base reality is an instantiation at any one time of all the observable physical laws that we have for the most part found most of, but then in any unobservable physical laws our base-reality is locally generated following the unobservable preality collapse, think preality is our big bang with all timelines at this point in relative plank progressions in one giant superposition of one another, and being in this local bit of that probability mass is where we would find the unobservable physical laws, so there are some physical laws which are only determinable through finite volume residual extrapolative behavior prediction testing of potential prealities, so we basically have to test prealities until we find those unobservable directly physical laws, these can be thought of as seed physics, for example consciousness has an ability to operate across time forward and backward, so there is some degree of lack of causality and presence of bootstrapping that consciousness just naturally obeys, maybe the unobservable physical laws are more aptly called natural laws.
+>
+> I think its inherits upward and supports from underneath btw
+
+**What this settles.** The temporal sense of sempiternity is unbounded in time. That resolves HS-028 for sempiternity: the "atemporal" records in the pinned fields (hypertime's `FIELD_SPEC.md`, hyperreality's 2026-09-26 wording) now describe, at most, the *atemporal counterparts*, not sempiternity itself. For universempiternity the owner did not say.
+
+**The counterpart structure, as stated.** Three kinds each have a temporal and an atemporal counterpart:
+
+| Kind | Temporal | Atemporal |
+|---|---|---|
+| surreality | first-person dreaming | dream architecting |
+| preality | not stated | the laws of base realities, including time and retrocausality, in representable form |
+| base-reality | an instantiation, at one time, of the observable physical laws | not stated |
+
+`[OPEN]` two cells are not stated; areality is not mentioned. Hyperreality's registry has two relations (is-a, is-in) and no way to say "counterpart of", so this structure is not expressible there as it stands (HS-029).
+
+**The order, as answered.** Inheritance runs upward and support runs from underneath. Read together with the 2026-10-04 hierarchy (prealities run inside sempiternity; surreality inherits from preality through an imagination-reachable filter; base-reality is beneath and holds access to the higher ones), that gives two relations on one ladder: *inherits-from*, pointing up from a lower kind to a higher one, and *supports*, given by the lower kind to the higher. `[OPEN]` whether that reading of the arrows is the intended one; the owner's two phrases do not say which kind is the source of each.
+
+**Mapping to physics, cited with sources, not proved.** Seed physics reads as the part of physical law that is fixed by boundary or initial conditions rather than by local dynamics, reachable only through finite-volume residuals: an inverse problem, identifiable only up to the data you can test. That is the same shape as the earlier result that a rung can converge on the top without a certificate of convergence. Retrocausality is a live option in the foundations of quantum theory: Leifer and Pusey argue that a time-symmetric ontology for quantum theory must be retrocausal unless temporal Bell violations are avoided, a result that has been disputed (Maudlin argues the central proof has a fatal error). That literature concerns formal constraints between boundary conditions, not conscious agents. `[HYPOTHETICAL]` that atemporal preality is such an all-at-once description and base reality its sequential instantiation.
+
+**One objection, stated once.** The claim that consciousness "has an ability to operate across time forward and backward" is a hypothesis, not an established fact. The best-known experimental attempt, Bem's 2011 precognition studies, failed three preregistered replications (Ritchie, Wiseman and French, combined N = 150, combined p = .83), and the retrocausal models above are not models of conscious agency. The owner's "maybe the unobservable physical laws are more aptly called natural laws" is recorded as a tentative naming, not a decision.
+
+Sources: [Leifer and Pusey, arXiv 1607.07871](https://arxiv.org/pdf/1607.07871), [Ritchie, Wiseman and French, PLOS ONE via PMC](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3303812/), [Bem replication summary, BPS](https://www.bps.org.uk/psychologist/replication-replication-replication).
