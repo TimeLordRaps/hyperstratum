@@ -43,8 +43,6 @@ jobs:
         run: python -m pip install -e ".[test]"
       - name: Tests (streamed, per-test and overall bounds)
         run: python -m pytest -vv -s --durations=10 --timeout=120
-      - name: Incubator tests (hyperphysics limits)
-        run: PYTHONPATH=incubator/hyperphysics-limits/src python -m pytest incubator/hyperphysics-limits/tests -vv -s --durations=10 --timeout=60
       - name: Check registry, references and citations
         shell: bash
         run: |

@@ -3,7 +3,7 @@ import pathlib
 import posixpath
 import re
 
-from hyperstratum import build, registry
+from hyperstratum import build
 
 from conftest import PINS, write
 
