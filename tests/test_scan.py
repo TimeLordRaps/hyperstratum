@@ -53,6 +53,7 @@ def test_sibling_edges_and_citations(root):
 def test_citation_audit_against_pins_and_hyperstratum_blobs(root):
     reg, terms = _setup(root)
     scans = {n: scan.scan_field(f, terms, scan.sibling_names(reg)) for n, f in reg.by_name.items() if f.pin}
+    assert scans  # every pinned field scans without error before its citations are audited
     old, new = "c" * 40, "d" * 40
     blobs = {(old, "specs/x.md"): "111", ("HEAD", "specs/x.md"): "222"}
     c_cur = scan.Citation("alpha", "README.md", 1, "beta", "b" * 40, "docs/one.md")
@@ -60,7 +61,10 @@ def test_citation_audit_against_pins_and_hyperstratum_blobs(root):
     c_drift = scan.Citation("alpha", "README.md", 3, "hyperstratum", old, "specs/x.md")
     c_same = scan.Citation("alpha", "README.md", 4, "hyperstratum", "HEAD", "specs/x.md")
     blobs[("HEAD", "specs/x.md")] = "222"
-    lookup = lambda sha, path: blobs.get((sha, path))
+
+    def lookup(sha, path):
+        return blobs.get((sha, path))
+
     out = scan.audit_citations([c_cur, c_old, c_drift, c_same], reg, lookup)
     assert [a.status for a in out] == ["CURRENT", "BEHIND", "DRIFTED", "CURRENT"]
     assert out[1].detail  # states what is and is not known

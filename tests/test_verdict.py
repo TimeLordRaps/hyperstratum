@@ -36,7 +36,7 @@ def test_stale_sibling_citation_alone_is_not_attention(root, tmp_path):
 
 def test_hyperstratum_definition_drift_is_attention(root, tmp_path):
     write(root / "fields/alpha/s.md", "[d](https://github.com/TimeLordRaps/hyperstratum/blob/" + "c" * 40 + "/specs/x.md)\n")
-    code = cli.main(["check", "--root", str(root), "--no-git", "--verdict", str(tmp_path / "v.json")],
-                    pins=PINS, blob_lookup=lambda s, p: {"c" * 40: "111", "HEAD": "222"}[s])
+    cli.main(["check", "--root", str(root), "--no-git", "--verdict", str(tmp_path / "v.json")],
+             pins=PINS, blob_lookup=lambda s, p: {"c" * 40: "111", "HEAD": "222"}[s])
     v = json.loads((tmp_path / "v.json").read_text())
     assert v["clean"] is False and v["attention"][0]["code"] == "CITATION_DRIFTED"
