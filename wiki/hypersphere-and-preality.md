@@ -65,6 +65,14 @@ Consequences for the stated model:
 * `[OPEN]` "Arrive right after we left" needs the departure to happen after the interior's infinite time. That is an interior time of order type at least `ω+1`, with the entrants living through the limit. The home return is only available under the second or third reading.
 * `[OPEN]` Who reads the result: the entrants (they must pass the limit and exit) or the exterior (it must receive the infinite history). The ethics and the branch-insertion analysis differ between the two.
 
+## Verbatim record of the statements
+
+The owner's words behind this page (the 2026-10-03 nesting message, the compute-economics and time-break statement, preality as a corrigibility-like guarantee, and the reality types including areality) are held verbatim in hyperreality, with dates, as a live passage:
+
+[[hyperreality:PROVENANCE.md#L163-L187]]
+
+The quantum-gravity questions that followed are on [Quantum-gravity candidates](quantum-gravity-candidates.md).
+
 ## Open
 
 * `[OPEN]` Is a preality a simulation, or is it identical to the base-reality it simulates? Teleportation into one is entry into the base-reality only if identity holds, which is hyperobjectivity's question. Needs a definition before it can be tested.
