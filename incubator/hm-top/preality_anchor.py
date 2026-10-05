@@ -42,9 +42,9 @@ def matmul(A, B):
     return tuple(tuple(sum(A[i][k] * B[k][j] for k in range(2)) % n for j in range(2)) for i in range(2))
 
 
-M, I = ((2, 1), (1, 1)), ((1, 0), (0, 1))
+M, IDENT = ((2, 1), (1, 1)), ((1, 0), (0, 1))
 P, A = 1, M
-while A != I:
+while A != IDENT:
     A, P = matmul(A, M), P + 1
 s = (7, 13)
 t = s
