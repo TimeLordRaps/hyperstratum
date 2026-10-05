@@ -54,7 +54,7 @@ def test_reality_class_mapping_against_the_hyperreality_registry():
     r = subprocess.run([sys.executable, "reality_classes.py"], cwd=HERE, capture_output=True, text=True, timeout=120)
     print(r.stdout, r.stderr)
     assert r.returncode == 0, r.stderr[-600:]
-    for tag in ("1. ", "2. ", "3a. ", "3b. ", "3c. ", "3d. "):
+    for tag in ("0. ", "1. ", "2. ", "3a. ", "3b. ", "3c. ", "3d. "):
         assert any(ln.startswith(tag) for ln in r.stdout.splitlines()), tag
 
 

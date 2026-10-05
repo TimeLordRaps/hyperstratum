@@ -28,7 +28,7 @@ import html
 import json
 import pathlib
 import re
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Callable
 
 from . import lexicon

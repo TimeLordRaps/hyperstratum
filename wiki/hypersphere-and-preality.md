@@ -19,7 +19,7 @@ The taxonomy of reality kinds, including preality, lives in hyperreality:
 
 [[hyperreality:README.md#L6-L12]]
 
-It keeps the classification relation (is-a) apart from the containment relation (is-in), because sempiternity is stated as both the abstract class and the container of the kinds:
+It keeps the classification relation (is-a) apart from the containment relation (is-in), because the owner's 2026-09-26 statement makes one word both the abstract class and the container of the kinds. Under the owner's 2026-10-05 convention the class role is the property *sempiternality* and the container role is the object *sempiternity*; the live passage below still shows the earlier single spelling:
 
 [[hyperreality:FIELD_SPEC.md#L61-L66]]
 

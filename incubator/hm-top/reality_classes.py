@@ -44,20 +44,24 @@ realities = (
     hr.Presentation("r-surreal", "surreality"),
     hr.Presentation("r-imaginary", "areality"),
 )
-S = hr.Whole("S", "sempiternity")
+# Naming (owner, 2026-10-05): the OBJECT is a sempiternity, the PROPERTY it holds is sempiternality. In hyperreality's
+# registry a Whole is an instance of a class: S is the object (a sempiternity) and its class_name is the property.
+S = hr.Whole("S", "sempiternality")
 base_reg = hr.Registry(
     kinds=(base, sur, are),
     presentations=realities,
     wholes=(S,),
     containments=tuple(hr.Containment("S", p.reality_id) for p in realities),
 )
+assert S.class_name == "sempiternality" and S.whole_id == "S"
+print("0. S is an object (a sempiternity) whose class is the property sempiternality, as hyperreality's Whole expresses")
 assert hr.well_founded(base_reg)
 assert hr.members_of(base_reg, "S") == frozenset(p.reality_id for p in realities)
 assert hr.classes_of(base_reg, "S") == frozenset()  # sempiternity contains; containment never classifies
 print("1. sempiternity S contains the five realities, classifies nothing, containment well-founded")
 
 # 3. universempiternity
-U = hr.Whole("U", "universempiternity")
+U = hr.Whole("U", "universempiternality")
 try:
     hr.Containment("U", "U")
 except ValueError:
@@ -65,7 +69,7 @@ except ValueError:
 else:
     raise AssertionError("expected refusal")
 
-U1, U2 = hr.Whole("U1", "universempiternity"), hr.Whole("U2", "universempiternity")
+U1, U2 = hr.Whole("U1", "universempiternality"), hr.Whole("U2", "universempiternality")
 loop_reg = hr.Registry(
     kinds=(base, sur, are),
     presentations=realities,

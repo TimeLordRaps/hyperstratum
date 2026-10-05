@@ -1,4 +1,9 @@
-import os, pathlib, re, shutil, subprocess, sys
+import os
+import pathlib
+import re
+import shutil
+import subprocess
+import sys
 import pytest
 
 HERE = pathlib.Path(__file__).resolve().parents[1]

@@ -13,6 +13,8 @@ Checked exactly (sympy) and by argument:
      functions of the single parameter r, so no independent 'surreal component × imaginary component'
      product exists until the exponent itself is complex, ω^(a+bi) with a, b independent.
 """
+import cmath
+import math
 from fractions import Fraction as Fr
 from math import gcd
 
@@ -69,9 +71,6 @@ print("3. phase order verified exactly for", len(grid), "rationals:", cls)
 print("   irrational r: e^{iπr} has no finite order (e^{iπr n} = 1 would force n·r an even integer, so r rational)")
 
 # 4. one parameter only: modulus and phase are both read off r (numeric check of the phase, tolerance 1e-12)
-import cmath
-import math
-
 for r in grid[::9]:
     z = complex(sp.N(img(r), 30))
     assert abs(abs(z) - 2.0 ** float(-r)) < 1e-12

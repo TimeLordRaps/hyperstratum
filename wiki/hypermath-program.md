@@ -147,3 +147,11 @@ Correspondence: kinds ↔ classes of representations (unranked); sempiternity �
 **Owner's statement (USER-STATED, 2026-10-05).** "so if U contains U then S needs to contain S that doesnt feel right".
 
 That condition is only what *bisimilarity* of S and U would require, not a requirement of the model. If S must not contain itself, then S is bisimilar to no U that contains itself or contains S, so S and U are different objects (checked, all 16 clause combinations plus a corollary). What distinguishes them is exactly whether the whole holds a copy of itself. U is still determined: its one-, two- and three-node presentations are one object up to `==`, and it is not S. This matches the ordinals: ω^ω is not a member of itself, and the self-containing top is a different object reached only above the ladder. `[FORM]` for the finite model. `[HYPOTHETICAL]` as a reading of universempiternity.
+
+## Object and property: sempiternity and sempiternality
+
+**Owner's decision (USER-STATED, 2026-10-05).** "And yes rename the object sempiternity and the property it holds sempiternality".
+
+So the two words now do different jobs, and this wiki follows that: a **sempiternity** is the object, the whole that contains the realities; **sempiternality** is the property it holds, the class an object belongs to. That supersedes the single-spelling wording of the naming note above in one respect: it keeps the property term instead of dropping it. Hyperreality's registry already has the matching shape: a `Whole` is an instance of a class, and the incubator model now declares the object S as a sempiternity whose class is `sempiternality` (checked in `reality_classes.py`, which imports hyperreality read-only). The same split applies by analogy to the self-containing top, a universempiternity holding universempiternality; the owner did not state that case, so it is `[HYPOTHETICAL]`.
+
+**Consequence for the pinned repositories.** Their existing uses of "sempiternality" and "universempiternality" mostly name the object, so a rename there is not a mechanical substitution: each occurrence must be judged object or property. It still needs the owner to name each repository and say push (HS-027).
