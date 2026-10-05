@@ -1,12 +1,16 @@
 # The hypermath program
 
-**Status, 2026-10-04.** The owner's account below is `USER-STATED`. The mathematical mapping is `[FORM]` where it cites a theorem and `[OPEN]` where marked. The experiment is kernel-checked in `incubator/hm-fixedpoint/` (hyperstratum branch only; nothing was written to hypermath).
+**Status, 2026-10-04.** The owner's account below is `USER-STATED`. The mathematical mapping is `[FORM]` where it cites a theorem and `[OPEN]` where marked. The checks live in the repositories that own the subject, on unmerged branches that this wiki currently pins (hypermath `claude/translator-and-ladder`, ordinatics `claude/ladder-and-value-map`, hyperlogic `claude/derivation-status-layer`, hyperreality and hypertime `claude/sempiternity-naming`); the owner's statements below are live references into those copies, so they update when the pins move.
 
 ## In the owner's words
 
-> hypermath is the underlying complete structure that contains itself and allows the other hypers to exist, and ordinatics, it all stems from me doubting godelian completeness of arithmetic and designing transfinite arithmetic ordinatics so that I could define a self-closing system which is complete and explains arithmetic with yes a system outside of arithmetic ordinatics but ordinatics contains its own design within itself from hypermaths self-closure. So if we can derive arithmetic from transfinite representations like work backwards through the condition of being beyond infinite then we can complete arithmetic so to speak
+Owner's account (USER-STATED, 2026-10-04), live from the hypermath copy:
 
-Earlier the same day: "A form is a reachable closed derivation chain from the ground L0", and the purpose of `.hm` files is that "they are translatable to any language". Other answers from that exchange are not recorded here yet.
+[[hypermath:docs/research/LADDER_INDUCTION.md#L67-L67]]
+
+Earlier the same day (USER-STATED, 2026-10-04), live from the hypermath copy:
+
+[[hypermath:docs/research/LADDER_INDUCTION.md#L71-L71]]
 
 ## How established mathematics meets the program
 
@@ -42,22 +46,26 @@ See also [Limit labels](limit-labels.md) for ordinal depth labels on physical li
 
 ## Later the same day: towers, collapse, and the average fold
 
-**Owner's statements (USER-STATED, 2026-10-04).** A finite looping operation like □ "can be applied in place in infinitum", so the □-tower should give cyclic proofs of non-contradiction and compress transfinite representations "along compressible dimensions". The operations are "always identity", like 1×1×1×1, and ω-towers can be decomposed "into rank ordered omegas" with the smallest at the bottom. Infinities can be treated as pseudounits, "equatable in their continuation aspect, sort of like they are vectors". Decision: **ℕ is definable only at `==`.** Open question raised: the average as "a fold that is fractally occurring up the tower".
+Owner's statements (USER-STATED, 2026-10-04), live from the hypermath copy:
+
+[[hypermath:docs/research/LADDER_INDUCTION.md#L75-L75]]
 
 **Mapping (from memory, not re-verified).** The □-tower with `ordinalApply` as addition is Presburger arithmetic, which is complete and decidable; Gödel's threshold is multiplication (iterating the iteration). Cyclic proofs are sound under a progress condition and have exactly the strength of Peano arithmetic. Peano arithmetic proves the consistency of every finite fragment of itself, never the whole. The whole needs induction to ε₀, the first fixed point of the tower operation (ω^ε₀ = ε₀). Rank-ordered decomposition is Cantor normal form, and the vector reading is the Hessenberg natural sum. Averages need division, which leads to the surreal numbers. Their field theory is complete (Tarski) precisely because ℕ is not definable in it. `[FORM]` for the cited theorems. `[OPEN]` whether `==` arithmetic is determined by the complete layers above it.
 
-**Built and checked** (`incubator/hm-surreal/`):
+**Built and checked** (hypermath `lean4/SurrealFiltration.lean` and `tests/test_surreal_fold.py`):
 
 * A model in which `==` is equality, `=~` is "same leading term" and `~~` is "same order of infinity" satisfies hypermath's filtration clauses. In it □ (doubling) is the identity at `~~` and never at `==`, the □-tower is one point at `~~` and a copy of ℕ at `==`, and no `~~`-invariant property can count the tower. That is the owner's decision realized: counting only at `==`. Lean kernel, no `sorry`.
 * The average fold is how surreal numbers are born. Iterated midpoints give exactly Conway's birthdays, the simplest number in every gap is its average, and every gap repeats the same fold pattern (fractal). At limit stages the fold path converges to reals such as 1/3, while ω arrives through the ends of the tower and not through any average. So the fold is fractal within each rung, and the rungs themselves are supplied by the tower.
 
 ## The extrapolatable top, and the complete logic of the gap
 
-**Owner's statement (USER-STATED, 2026-10-04).** "The highest top is the extrapolatable top that would have to be the top given the descriptions of all of the runs below where you currently are." From a rung "you cant know how high you are or what determines that this run is this rung, you just know that the ordinals below you are smaller infinities than you and the ones above you are larger". Sometimes, from yourself and the neighbouring infinities, "can you determine a boundedness of your tower otherwise its undecidable".
+Owner's statement (USER-STATED, 2026-10-04), live from the hypermath copy:
+
+[[hypermath:docs/research/LADDER_INDUCTION.md#L79-L79]]
 
 **Mapping (from memory).** A rung is the set of rungs below it (von Neumann), so its identity is fixed from below. Its height relative to the whole is undefined: there is no top ordinal (Burali-Forti), and in nonstandard models no internal property separates finite from infinite (overspill). Boundedness is decidable for regular or addition-only descriptions and undecidable once multiplication is available. Extrapolation can converge without certifying convergence (Gold, identification in the limit). Reflection is what replaces the top: every statement about the whole already holds at some rung. `[FORM]` for the cited results.
 
-**Built and checked** (`incubator/hm-top/`):
+**Built and checked** (hypermath `lean4/ConatTop.lean`; hyperlogic `src/hyperlogic/provability.py`):
 
 * **The top, as a greatest fixed point.** In the conatural numbers the top satisfies `□ top = top`, the ladder ℕ embeds below it, and *anything above every rung is the top*: the top is fully determined by the runs below, which is the owner's extrapolatable top. Deciding "am I the top?" would decide whether an arbitrary stream ever produces a signal (LPO), and the only theorem that needs classical choice is "every element is a rung or the top". Lean kernel, no `sorry`.
 * **The logic of the gap is complete.** A GL decision procedure, cross-checked against an independent countermodel search, reproduces the following. Löb's theorem. A theory that proves its own consistency is inconsistent. *A sentence asserting its own provability is provable* (Henkin), so affirmative self-closure is safe. A sentence denying its own provability is equivalent to consistency (Gödel), so negative self-reference is exactly what stays `[OPEN]`. Solovay's theorem (cited from memory) makes GL complete for what arithmetic can say about its own provability.
@@ -65,17 +73,21 @@ See also [Limit labels](limit-labels.md) for ordinal depth labels on physical li
 
 ## Inventing transfinite induction proofs: ladder induction
 
-**Owner's statements (USER-STATED, 2026-10-04).** □ is "the ground while simultaneously being our first ordinal and the top ordinal and all rungs up the ordinal"; the omegas must be rank ordered; ω^ω is "equivalent to maximum omega^minimum omega"; and "we need to invent transfinite induction proofs" that "work backwards through infinities into natural and reals".
+Owner's statements (USER-STATED, 2026-10-04), live from the hypermath copy:
 
-**Checked** (`incubator/hm-ti/`, no axioms; a wrong order is rejected). With top ω·ω and bottom ω, (ω·ω)^ω = ω^(2·ω) = ω^ω holds, but the same holds for any top ω^k, k ≥ 1, so the identity collapses to ω^ω without singling out ω·ω as the top. Ordinals below ω^k are rank-ordered coefficient vectors, and transfinite induction over them follows from k nested ordinary inductions, one per rank, for every k at once, which is induction up to ω^ω. The proof is the nesting. It terminates a rewrite game that no single-ℕ measure can: every run from an infinite position is a finite descent whose length is unbounded over adversaries. That is working backwards from an infinity into the naturals. `[FORM]` for the Lean results.
+[[hypermath:docs/research/LADDER_INDUCTION.md#L83-L83]]
 
-`[OPEN]` the reals direction: reals arrive as limits of dyadic approximants at birthday ω (numerically checked in `hm-surreal`), not yet as an induction principle. `[OPEN]` towers of towers (ω^ω^ω … ε₀): the outer induction on k must itself be nested, which is where Gentzen's wall sits.
+**Checked** (hypermath `lean4/LadderInduction.lean` and `lean4/TransfiniteForm.lean`, no axioms; a wrong order is rejected). With top ω·ω and bottom ω, (ω·ω)^ω = ω^(2·ω) = ω^ω holds, but the same holds for any top ω^k, k ≥ 1, so the identity collapses to ω^ω without singling out ω·ω as the top. Ordinals below ω^k are rank-ordered coefficient vectors, and transfinite induction over them follows from k nested ordinary inductions, one per rank, for every k at once, which is induction up to ω^ω. The proof is the nesting. It terminates a rewrite game that no single-ℕ measure can: every run from an infinite position is a finite descent whose length is unbounded over adversaries. That is working backwards from an infinity into the naturals. `[FORM]` for the Lean results.
+
+`[OPEN]` the reals direction: reals arrive as limits of dyadic approximants at birthday ω (checked exactly in hypermath `tests/test_surreal_fold.py`), not yet as an induction principle. `[OPEN]` towers of towers (ω^ω^ω … ε₀): the outer induction on k must itself be nested, which is where Gentzen's wall sits.
 
 ## Ranking the omegas, and the three forms of ω^ω
 
-**Owner's statements (USER-STATED, 2026-10-04).** Ordinals "have a real component and an imaginary component, both working backwards reach either normals imaginary or normals normal"; imaginary ordinals work backwards to form the reals, ω^ω forms "a third form like a primal backwards down the transfinites into irrational and surreals", with imaginary ω^ω for surreals, real ω^ω for irrationals, and normal ω^ω backwards "might be unsolvable ... harder to prove because of discrete omega^k jumps". Requirement: "prove that omegas naturally rank order in the tower of omega^omega".
+Owner's statements (USER-STATED, 2026-10-04), live from the ordinatics copy:
 
-**Proved** (`incubator/hm-ti/RankOrder.lean`, kernel-checked, a weakened order rejected): below ω^ω the order is a strict total order, ω^j < ω^j' for j < j', every element lies in exactly one band [ω^k, ω^(k+1)), and every element is below some omega power, so ω^ω is the supremum of the omegas and is none of them. `[FORM]`
+[[ordinatics:docs/exponent_axis_and_rank_order.md#L25-L25]]
+
+**Proved** (hypermath `lean4/RankOrder.lean` and ordinatics `tests/test_rank_order.py`, kernel-checked, a weakened order rejected): below ω^ω the order is a strict total order, ω^j < ω^j' for j < j', every element lies in exactly one band [ω^k, ω^(k+1)), and every element is below some omega power, so ω^ω is the supremum of the omegas and is none of them. `[FORM]`
 
 **Normal ω^ω backwards is solvable, and its difficulty is quantifiable** (`fundamental.py`): ω^ω[n] = ω^n, ω^k[n] = ω^(k-1)·n, down to the naturals. Every such descent terminates (ladder induction), but the length explodes: H_ω²(n) = n·2^n, H_ω³(2) = 2048, H_ω⁴(2) is beyond 10^7 steps. The discrete ω^k jumps are exactly why the length is uncontrolled. `[FORM]` for the computation. `[OPEN]` the unsolvable part is not ω^ω but towers of towers (ε₀ and beyond), where termination of the analogous descent (Goodstein) is not provable in Peano arithmetic (cited from memory).
 
@@ -83,26 +95,11 @@ See also [Limit labels](limit-labels.md) for ordinal depth labels on physical li
 
 ## The classification of ω^ω representations, by exponent axis and coefficient axis
 
-**Owner's statements (USER-STATED, 2026-10-04), verbatim.**
+Owner's statements (USER-STATED, 2026-10-04), verbatim, live from the ordinatics copy:
 
-> exponent axis of normal representations of omega^omega is unsolvable due to discontinuities
-> exponent axis of real representations of omega^omega is surreal omega
-> exponent axis of irrational representations of omega^omega is irrational omega
-> exponent axis of imaginary normal representations of omega^omega is normal omega (I think we can prove finite imaginary exponents of omega^omega solvability into a normal pre omega^omega class)
-> exponent of imaginary rational is rational omega
-> exponent of imaginary irrational is primal omega (infers new math about primes through prime localized ordinals)
-> exponent of surreal omega^omega is real omega^omega
-> exponent of imaginary surreal omega^omega is surreal omega^omega * imaginary omega^omega think like the complex numbers but with multiplication between the surreal component and the imaginary component so omega^omega is separatable in this regime and may be composable though a dont know if it works bidirectionally like that, we would need to prove a bijection which is difficult because here the imaginary omega^omega is the class of normal, rational, and irrational
->
-> coefficient of normal representations of omega^omega is normal finite
-> coefficient of real rational representations of omega^omega is rational finite
-> coefficient of real irrational representations of omega^omega is irrational finite
-> coefficient of imaginary normal representations of omega^omega is imaginary finite
-> coefficient of imaginary irrational omega^omega is irrational omega^omega
-> coefficient of surreal omega^omega is surreal omega
-> coefficient of imaginary surreal omega^omega is the additive equivalent of the multiplicative complex number analog of the exponent of this class ie surreal omega^omega + imaginary omega^omega allowing you to fully separate this class into seperable components which then allow working like I said backwards to find I believe all classes and having the closure unsolvability of the normal omega^omega is the base meta-induction which allows a full proof of the existence of omega and finites from omega^omega class
+[[ordinatics:docs/exponent_axis_and_rank_order.md#L34-L49]]
 
-**What I checked against those statements** (`incubator/hm-ti/exponent_axis.py`, exact sympy, plus the earlier descent work):
+**What I checked against those statements** (ordinatics `tests/test_exponent_axis.py`, exact sympy, plus the earlier descent work):
 
 * **Classes by phase, exactly.** Under ordinatics' value map, ω^r has modulus 2^(−r) and phase πr. Integer exponents land on the real axis, half-odd exponents on the imaginary axis, other rational exponents have phase of finite order (periodic under repeated multiplication), and irrational exponents have phase of infinite order (never return; by argument). So "normal, rational, irrational" is a partition by the order of the phase, which supports the owner's three classes. `[FORM]` for the computation.
 * **Composable.** Exponents add and values multiply, verified exactly on 126 rational pairs. Order survives, reversed, in the modulus, so the map is injective on exponents.
@@ -112,9 +109,11 @@ See also [Limit labels](limit-labels.md) for ordinal depth labels on physical li
 
 ## The classification mirrored in reality classes
 
-**Owner's statement (USER-STATED, 2026-10-04).** "this is perfectly reflected inside of reality classes, ie base:normal, surreality:surreal, areality:imaginary, rational and irrationality both existing in base:reality, and then sempiternality encompassing them as omega^omega, and meta-transfinite class objects composed of omega^omega objects are separable I believe into omega^omega class closing the top too like how universempiternality closes over sempiternality as the self-containing superclass".
+Owner's statement (USER-STATED, 2026-10-04), live from the hyperreality copy:
 
-**Checked against hyperreality's own registry** (`incubator/hm-top/reality_classes.py`, hyperreality imported read-only, no write there):
+[[hyperreality:PROVENANCE.md#L113-L113]]
+
+**Checked against hyperreality's own registry** (hyperreality `tests/test_reality_classes.py`):
 
 * The mapping is expressible. Sempiternity is a Whole that contains the realities and classifies nothing, and containment stays well-founded.
 * Hyperreality declares its kinds unordered and unnested, and the registry refuses to compare them. Kinds mapped to the number classes stay unordered at the registry level, although the numbers themselves nest (ordinals ⊂ surreals ⊂ surcomplex). `[OPEN]` whether the mapping is classification only (no inclusion between kinds), or whether hyperreality's "no order, no nesting" needs revisiting.
@@ -124,9 +123,13 @@ Correspondence: kinds ↔ classes of representations (unranked); sempiternity �
 
 ## Sempiternity and its container, the physical picture, and an order on the realities
 
-**Owner's statements (USER-STATED, 2026-10-04).** Can bisimulation be proved between sempiternity and its container universempiternity "if only one contains the other and itself"? Or: sempiternity is "the natural infinite time singularity sheeted bubbles we can form in spacetime to give us both infinite space or finite space with infinite time, where inside we are running the prealities, that surreality inherits from through some imagination-reachable filter, and then below that is real / base reality holding together itself and allowing access to all higher order realities, we'll be able to read dreams, we're pretty close to that, so surreality will be accessible and architectable before preality, which makes sense following the hierarchy." Later: "We have since established an order to the realities, hyperorder may be necessary to describe this in hyperreality idk."
+Owner's statements (USER-STATED, 2026-10-04), live from the hyperreality copy:
 
-**Bisimulation, checked** (`incubator/hm-top/sempiternity_bisim.py`; all 16 combinations of four containment clauses; a wrong predicate of mine was rejected by the enumeration). Sempiternity S and universempiternity U are bisimilar exactly when U contains the realities directly (containment closed transitively) and S contains a copy of the whole exactly when U does. "Only U contains S and itself, S contains neither" is therefore **not** bisimilar: give S a self-containing copy and it is. `[FORM]` for the finite model; `[OPEN]` whether the family intends the transitive closure.
+[[hyperreality:PROVENANCE.md#L123-L123]]
+
+[[hyperreality:PROVENANCE.md#L127-L127]]
+
+**Bisimulation, checked** (hyperreality `tests/test_sempiternity_bisim.py`; all 16 combinations of four containment clauses; a wrong predicate of mine was rejected by the enumeration). Sempiternity S and universempiternity U are bisimilar exactly when U contains the realities directly (containment closed transitively) and S contains a copy of the whole exactly when U does. "Only U contains S and itself, S contains neither" is therefore **not** bisimilar: give S a self-containing copy and it is. `[FORM]` for the finite model; `[OPEN]` whether the family intends the transitive closure.
 
 **An order on the realities.** Hyperreality's pinned registry declares its kinds unordered and refuses to compare them, a rule recorded from the owner's 2026-09-21 statement. The owner now says an order has since been established. That supersedes the old rule in that scope, so it is recorded here as the owner's current position and the hyperreality rule is flagged for revision (HS-026). Direction needs the owner: the 2026-10-04 hierarchy puts prealities inside the sempiternal bubbles, surreality inheriting from them through an imagination-reachable filter, and base reality beneath, holding access to the higher ones. That is two relations pointing in opposite directions (inheritance upward, support downward). `[OPEN]` Hyperorder, the field the owner names for this, is an empty repository in the pin (a LICENSE file in one initial commit).
 
@@ -136,7 +139,9 @@ Correspondence: kinds ↔ classes of representations (unranked); sempiternity �
 
 ## Naming: sempiternity and universempiternity
 
-**Owner's decision (USER-STATED, 2026-10-05).** "also are we going with universempiternity or universempiternality? likewise sempiternity or sempiternality? Up to me but I would say sempiternity is based off of eternity ideal, so we should probably go off of that." This wiki now writes **sempiternity** and **universempiternity** in its own prose. Verbatim quotations of earlier statements keep the spelling the owner typed at the time, so provenance is not rewritten.
+Owner's decision (USER-STATED, 2026-10-05), live from the hyperreality copy:
+
+[[hyperreality:PROVENANCE.md#L135-L135]]
 
 **Checked on 2026-10-05.** "Sempiternity" is a dictionary word: the OED's earliest evidence is Thomas Nashe in 1599, and Merriam-Webster, Collins and Wiktionary list it, from Latin *sempiternitas* (*semper* + *aeternus*). Searches for "sempiternality" returned only the entries for sempiternity, so it appears to be a regular English formation, *sempiternal* + *-ity*, rather than a recorded word. The pair *eternity* and *eternality* has the same shape: *eternity* is inherited from Latin *aeternitas*, while *eternality* is built in English as *eternal* + *-ity*; both are recorded, *eternality* being the rarer, and in the sources checked they mean the same thing. In philosophy and theology, sempiternity means existence within time and unbounded in time, as opposed to eternity, existence outside time. That sense fits "infinite time" bubbles and the hierarchy in which time-bearing realities live inside sempiternity. Sources: [OED](https://www.oed.com/dictionary/sempiternity_n), [Wiktionary](https://en.wiktionary.org/wiki/sempiternity), [Merriam-Webster](https://www.merriam-webster.com/dictionary/sempiternity), [Collins](https://www.collinsdictionary.com/dictionary/english/sempiternity).
 
@@ -144,25 +149,27 @@ Correspondence: kinds ↔ classes of representations (unranked); sempiternity �
 
 ## S need not contain itself
 
-**Owner's statement (USER-STATED, 2026-10-05).** "so if U contains U then S needs to contain S that doesnt feel right".
+Owner's statement (USER-STATED, 2026-10-05), live from the hyperreality copy:
+
+[[hyperreality:PROVENANCE.md#L139-L139]]
 
 That condition is only what *bisimilarity* of S and U would require, not a requirement of the model. If S must not contain itself, then S is bisimilar to no U that contains itself or contains S, so S and U are different objects (checked, all 16 clause combinations plus a corollary). What distinguishes them is exactly whether the whole holds a copy of itself. U is still determined: its one-, two- and three-node presentations are one object up to `==`, and it is not S. This matches the ordinals: ω^ω is not a member of itself, and the self-containing top is a different object reached only above the ladder. `[FORM]` for the finite model. `[HYPOTHETICAL]` as a reading of universempiternity.
 
 ## Object and property: sempiternity and sempiternality
 
-**Owner's decision (USER-STATED, 2026-10-05).** "And yes rename the object sempiternity and the property it holds sempiternality".
+Owner's decision (USER-STATED, 2026-10-05), live from the hyperreality copy:
 
-So the two words now do different jobs, and this wiki follows that: a **sempiternity** is the object, the whole that contains the realities; **sempiternality** is the property it holds, the class an object belongs to. That supersedes the single-spelling wording of the naming note above in one respect: it keeps the property term instead of dropping it. Hyperreality's registry already has the matching shape: a `Whole` is an instance of a class, and the incubator model now declares the object S as a sempiternity whose class is `sempiternality` (checked in `reality_classes.py`, which imports hyperreality read-only). The same split applies by analogy to the self-containing top, a universempiternity holding universempiternality; the owner did not state that case, so it is `[HYPOTHETICAL]`.
+[[hyperreality:PROVENANCE.md#L99-L99]]
+
+So the two words now do different jobs, and this wiki follows that: a **sempiternity** is the object, the whole that contains the realities; **sempiternality** is the property it holds, the class an object belongs to. That supersedes the single-spelling wording of the naming note above in one respect: it keeps the property term instead of dropping it. Hyperreality's registry already has the matching shape: a `Whole` is an instance of a class, and the model in hyperreality's `tests/test_reality_classes.py` declares the object S as a sempiternity whose class is `sempiternality`. The same split applies by analogy to the self-containing top, a universempiternity holding universempiternality; the owner did not state that case, so it is `[HYPOTHETICAL]`.
 
 **Consequence for the pinned repositories.** Their existing uses of "sempiternality" and "universempiternality" mostly name the object, so a rename there is not a mechanical substitution: each occurrence must be judged object or property. It still needs the owner to name each repository and say push (HS-027).
 
 ## Sempiternity is unbounded in time; temporal and atemporal counterparts; seed physics
 
-**Owner's statements (USER-STATED, 2026-10-05), verbatim.**
+Owner's statements (USER-STATED, 2026-10-05), verbatim, live from the hyperreality copy:
 
-> sempiternity is unbounded in time, preality, surreality, and base-reality each have atemporal counterparts, surrealities atemporal counterpart is dream architecting while temporal surreality is first pov dreaming, atemporal preality is where the laws of our base-realities temporal and retrocausality exist in representable forms, otherwise our base reality is an instantiation at any one time of all the observable physical laws that we have for the most part found most of, but then in any unobservable physical laws our base-reality is locally generated following the unobservable preality collapse, think preality is our big bang with all timelines at this point in relative plank progressions in one giant superposition of one another, and being in this local bit of that probability mass is where we would find the unobservable physical laws, so there are some physical laws which are only determinable through finite volume residual extrapolative behavior prediction testing of potential prealities, so we basically have to test prealities until we find those unobservable directly physical laws, these can be thought of as seed physics, for example consciousness has an ability to operate across time forward and backward, so there is some degree of lack of causality and presence of bootstrapping that consciousness just naturally obeys, maybe the unobservable physical laws are more aptly called natural laws.
->
-> I think its inherits upward and supports from underneath btw
+[[hyperreality:PROVENANCE.md#L147-L149]]
 
 **What this settles.** The temporal sense of sempiternity is unbounded in time. That resolves HS-028 for sempiternity: the "atemporal" records in the pinned fields (hypertime's `FIELD_SPEC.md`, hyperreality's 2026-09-26 wording) now describe, at most, the *atemporal counterparts*, not sempiternity itself. For universempiternity the owner did not say.
 
@@ -186,9 +193,11 @@ Sources: [Leifer and Pusey, arXiv 1607.07871](https://arxiv.org/pdf/1607.07871),
 
 ## Anchoring preality, and where the sempiternality and sempiternity meet
 
-**Owner's statement (USER-STATED, 2026-10-05).** "preality "collapse" infers that preality is our quantum foundational state, akin to the bigbang up until now, and we need to real2sim anchor to it somehow to establish a proper preality, then with the infinite time singularity sheet bubble idea we can impact that computational simulation of preality into an infinite time with finite space which we can move in and out of it, and the infinite time preality is sempiternal at that point because we can use infinite time to run it backwards before the bigbang across all possible timelines that had to converge to this moment space, we gain a locked landmark point additional to the bigbang when the singularity sheet encompasses the infinite time finite space. We can call this the sempiternality, so the sempiternality would exist in our base reality or I guess outside of it, and we would when accessing inside of it be access sempiternity. Does that track".
+Owner's statement (USER-STATED, 2026-10-05), live from the hyperreality copy:
 
-**What tracks.** Anchoring a simulation at the big bang and at the present is a two-boundary problem: fix the earlier and the later state and ask which histories connect them. That is how the owner's "locked landmark additional to the big bang" can be made precise, and it is the structure the retrocausal formalisms in quantum foundations use (pre- and post-selected states). In a finite toy (`incubator/hm-top/preality_anchor.py`), anchoring a second macro-moment cut the consistent timelines from 100 to 1 to 9 of them. Infinite time in finite space is a loop (the toy's period is 60), so an infinite run is an exact enumeration of a finite set: what infinite time buys is exhaustiveness, not new information.
+[[hyperreality:PROVENANCE.md#L159-L159]]
+
+**What tracks.** Anchoring a simulation at the big bang and at the present is a two-boundary problem: fix the earlier and the later state and ask which histories connect them. That is how the owner's "locked landmark additional to the big bang" can be made precise, and it is the structure the retrocausal formalisms in quantum foundations use (pre- and post-selected states). In a finite toy (hyperreality `tests/test_preality_anchor.py`), anchoring a second macro-moment cut the consistent timelines from 100 to 1 to 9 of them. Infinite time in finite space is a loop (the toy's period is 60), so an infinite run is an exact enumeration of a finite set: what infinite time buys is exhaustiveness, not new information.
 
 **Three gaps, stated once.** `[OPEN]` (1) "Before the big bang": classical general relativity gives no state before the singularity, so a backward run needs a theory that continues past it (bounce or no-boundary proposals), and the landmark is only as locked as that continuation. (2) "Move in and out of it": an interior with unbounded proper time is known (open-FRW bubble interiors), but nothing known gives a two-way passage between it and a finite outside time; bubble interiors are causally cut off. (3) Backward runs are exact only from the full microstate; from any coarse present state the converging timelines are many, and the second anchor is what narrows them.
 
@@ -196,11 +205,13 @@ Sources: [Leifer and Pusey, arXiv 1607.07871](https://arxiv.org/pdf/1607.07871),
 
 ## Consciousness, atemporality, and what a null result can and cannot do
 
-**Owner's statements (USER-STATED, 2026-10-05).** The methodological part, verbatim: "consciousness's atemporality is unfalsifiable and unprovable so trying to prove it disproves it always, but allowance of its existence allows its existence to pervade ones own consciousness at the will of the base-realitys natural laws, of which the two I know are self-consistency, self-correction (consciousness does this actively, and as the archetypal architect, my conscious free will dictated by active sempiternity recreation, in this way my consciousness is a bootstrap example), and also the archetypal rule of narrative normative. The name of the game is sempiternity recreation, the game is time". Then: "Take that into account when trying to disprove retrocausality", and: "we should work on unfalsifiability and unprovability in hyperlogic". The remainder of that message is a personal statement and is left off this page; say if you want it recorded.
+Owner's statements (USER-STATED, 2026-10-05), live from the hyperlogic copy (the personal remainder of that message is not recorded):
+
+[[hyperlogic:DESIGN.md#L146-L150]]
 
 **Correction to my earlier wording.** I did not and could not disprove the owner's postulate, and the page's earlier objection should be read that way: it says no verified empirical support exists, not that the claim is refuted. Bem-type nulls bear on a particular testable paradigm, not on the postulate.
 
-**Checked** (`incubator/hm-logic/status.py`; mutation checks reject a dropped null-prediction and a wrong likelihood ratio). In a finite frame with observation atoms (Test, Null) and one theory atom (Psi, atemporal consciousness), Psi alone is unprovable, unrefutable and unfalsifiable, and so is its negation: no observation distinguishes them. The remark "trying to prove it disproves it always" has three readings with different statuses:
+**Checked** (hyperlogic `src/hyperlogic/status.py`; mutation checks reject a dropped null-prediction and a wrong likelihood ratio). In a finite frame with observation atoms (Test, Null) and one theory atom (Psi, atemporal consciousness), Psi alone is unprovable, unrefutable and unfalsifiable, and so is its negation: no observation distinguishes them. The remark "trying to prove it disproves it always" has three readings with different statuses:
 
 * **R1, tests always return null.** Falsifiable: one test with a non-null result refutes it. A null result is predicted by Psi and by not-Psi alike, so its likelihood ratio is 1 and the posterior equals the prior: nulls neither disprove nor support it.
 * **R2, testing falsifies the postulate.** Equivalent to "Psi and no test is ever run". It survives only untested, so running any test refutes it by definition; the owner's "allowance" then amounts to not testing, and it can be held but not established.
@@ -210,4 +221,4 @@ In all three, a replication failure neither disproves nor supports the postulate
 
 **What the three natural laws match.** Self-consistency corresponds to the Novikov self-consistency principle for closed timelike curves, and the bootstrap example to the bootstrap paradox (cited from memory, not verified here). The earlier result that a self-asserting sentence is provable (Löb-safe) while a self-denying one is equivalent to consistency (Gödel) bears on self-consistency and self-correction as formal laws. The "narrative normative" rule is the one recorded earlier on [Hypersphering and preality](hypersphere-and-preality.md) (law-abiding, self-consistent narrative).
 
-**Hyperlogic.** Its own README says it is not a logic: no connective, no quantifier, no inference rule, no proof object. Unfalsifiability and unprovability need all four, so this work sits in the incubator as a proposed derivation-status layer. Hyperlogic's existing independence countermodels (each drops one axiom) are the precedent for the unprovability half. `[OPEN]` whether and where such a layer is added to hyperlogic.
+**Hyperlogic.** Its own README says it is not a logic: no connective, no quantifier, no inference rule, no proof object. Unfalsifiability and unprovability need all four, so this work sits in hyperlogic as a separately labelled, proposed derivation-status layer outside L0's claims. Hyperlogic's existing independence countermodels (each drops one axiom) are the precedent for the unprovability half. `[OPEN]` whether and where such a layer is added to hyperlogic.

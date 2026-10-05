@@ -19,13 +19,13 @@ The taxonomy of reality kinds, including preality, lives in hyperreality:
 
 [[hyperreality:README.md#L6-L12]]
 
-It keeps the classification relation (is-a) apart from the containment relation (is-in), because the owner's 2026-09-26 statement makes one word both the abstract class and the container of the kinds. Under the owner's 2026-10-05 convention the class role is the property *sempiternality* and the container role is the object *sempiternity*; the live passage below still shows the earlier single spelling:
+It keeps the classification relation (is-a) apart from the containment relation (is-in), because the owner's 2026-09-26 statement makes one word both the abstract class and the container of the kinds. Under the owner's 2026-10-05 convention the class role is the property *sempiternality* and the container role is the object *sempiternity*:
 
-[[hyperreality:FIELD_SPEC.md#L61-L66]]
+[[hyperreality:FIELD_SPEC.md#L60-L66]]
 
 And it records the direction question that hypersphering poses, a base-reality that expands to obtain a sempiternity inside itself:
 
-[[hyperreality:FIELD_SPEC.md#L73-L74]]
+[[hyperreality:FIELD_SPEC.md#L74-L75]]
 
 The observability criterion that a lazy preality would have to meet is hyperspace's, and the branching it would insert itself into is hypertime's: see [[hyperspace]] and [[hypertime]], and the [[Reality]] seam page for where the three meet.
 

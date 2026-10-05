@@ -5,6 +5,11 @@
       "pin": "ed32f5ee1026306bdf04894da200539fd4abc266",
       "sha256": "ace7d3910f0898d5cdf950824fb73641b8d4ab0c33044376700a7a985925bebf"
     },
+    "hyperlogic:DESIGN.md#L146-L150": {
+      "at": "hyperlogic:DESIGN.md",
+      "pin": "992dcfba494817e411eaa04442199955b4e50943",
+      "sha256": "3d235cc99de4ae07520c85e8888c3383e4efaad0822895b94d5051375453ba9c"
+    },
     "hypermath:L3_ordinatics.hm#L130-L130": {
       "at": "hypermath:L3_ordinatics.hm",
       "pin": "dc89cbb4f154844ca4909d7c1c359ee3882323e2",
@@ -14,6 +19,31 @@
       "at": "hypermath:README.md",
       "pin": "dc89cbb4f154844ca4909d7c1c359ee3882323e2",
       "sha256": "d97ee16416f69290a529dc0663b654cd1bfe84d6f5b5490af2836d3bde6e491a"
+    },
+    "hypermath:docs/research/LADDER_INDUCTION.md#L67-L67": {
+      "at": "hypermath:docs/research/LADDER_INDUCTION.md",
+      "pin": "dc89cbb4f154844ca4909d7c1c359ee3882323e2",
+      "sha256": "ede72aa85a185afd40b1225e432926abf505cd5c026691bea5f02ea7311a88d7"
+    },
+    "hypermath:docs/research/LADDER_INDUCTION.md#L71-L71": {
+      "at": "hypermath:docs/research/LADDER_INDUCTION.md",
+      "pin": "dc89cbb4f154844ca4909d7c1c359ee3882323e2",
+      "sha256": "e1fa2928f67c38e896e9456f690c00917c06796161e6d3c6c7cd99aa95e08f88"
+    },
+    "hypermath:docs/research/LADDER_INDUCTION.md#L75-L75": {
+      "at": "hypermath:docs/research/LADDER_INDUCTION.md",
+      "pin": "dc89cbb4f154844ca4909d7c1c359ee3882323e2",
+      "sha256": "e1d0a6cdf7cb9c918b4f4a9af1c85962b7632d9071341191d6e5c7c08cea817f"
+    },
+    "hypermath:docs/research/LADDER_INDUCTION.md#L79-L79": {
+      "at": "hypermath:docs/research/LADDER_INDUCTION.md",
+      "pin": "dc89cbb4f154844ca4909d7c1c359ee3882323e2",
+      "sha256": "87f05e0fabe7321fcb937fbca7fcf8cf6b3ea7a6e521ada2d11ffd3089012d7f"
+    },
+    "hypermath:docs/research/LADDER_INDUCTION.md#L83-L83": {
+      "at": "hypermath:docs/research/LADDER_INDUCTION.md",
+      "pin": "dc89cbb4f154844ca4909d7c1c359ee3882323e2",
+      "sha256": "6a7df7dbf7b0083dd494047ecc936403dd6b3450b36ae428ab0a97c2d5db325b"
     },
     "hypermath:lean4/FiniteActionCountermodel.lean#L66-L68": {
       "at": "hypermath:lean4/FiniteActionCountermodel.lean",
@@ -30,17 +60,57 @@
       "pin": "0425654cb78c96c4fb57d5e6455597cc4f73d8a4",
       "sha256": "43306347c53a17500976f3bc7e0a2695498990b280a8f898cd0b1fffd9362047"
     },
-    "hyperreality:FIELD_SPEC.md#L61-L66": {
+    "hyperreality:FIELD_SPEC.md#L60-L66": {
       "at": "hyperreality:FIELD_SPEC.md",
       "pin": "04181471bc4206bbb5da07163a8a2d2e6e32c227",
-      "sha256": "ee0da4164c2a36a62173326df7f07e01a345a0338b99c432acc4b4805eb2237b"
+      "sha256": "74915ebc72a09063031572a674e71cf83a69a2b3a665245969cf752f8d04290d"
     },
-    "hyperreality:FIELD_SPEC.md#L73-L74": {
+    "hyperreality:FIELD_SPEC.md#L74-L75": {
       "at": "hyperreality:FIELD_SPEC.md",
       "pin": "04181471bc4206bbb5da07163a8a2d2e6e32c227",
-      "sha256": "1fe28b6378a05cec92059e966cfdc7890d5c0ad398ab7c5670355c9e4f5b3a82"
+      "sha256": "c07c7bb2632801221d03e79eb81e8ae37b84b81e2674ce8f5f9c3a3493a37ed8"
     },
-    "hyperreality:README.md#L31-L37": {
+    "hyperreality:PROVENANCE.md#L113-L113": {
+      "at": "hyperreality:PROVENANCE.md",
+      "pin": "04181471bc4206bbb5da07163a8a2d2e6e32c227",
+      "sha256": "9d8350c99fe757add44a53acb79a2f8cec8220fdf15d003a1f9f34e527a43a18"
+    },
+    "hyperreality:PROVENANCE.md#L123-L123": {
+      "at": "hyperreality:PROVENANCE.md",
+      "pin": "04181471bc4206bbb5da07163a8a2d2e6e32c227",
+      "sha256": "8827d2cf4c881626c46b354e727455c88cca1c86f49f9e5d7930748aa978d415"
+    },
+    "hyperreality:PROVENANCE.md#L127-L127": {
+      "at": "hyperreality:PROVENANCE.md",
+      "pin": "04181471bc4206bbb5da07163a8a2d2e6e32c227",
+      "sha256": "6710978e28e3043ecd08a2c23f77085ff3712493824f13efa353493a1740e8f2"
+    },
+    "hyperreality:PROVENANCE.md#L135-L135": {
+      "at": "hyperreality:PROVENANCE.md",
+      "pin": "04181471bc4206bbb5da07163a8a2d2e6e32c227",
+      "sha256": "adc05fdbff85f4e69258ad9dc2694175f38f672476c3b797fd0bd8480d25e677"
+    },
+    "hyperreality:PROVENANCE.md#L139-L139": {
+      "at": "hyperreality:PROVENANCE.md",
+      "pin": "04181471bc4206bbb5da07163a8a2d2e6e32c227",
+      "sha256": "0c51f893d0f7b4e98734dab4219be062095bfc56540fcbe60d197d82025b9f85"
+    },
+    "hyperreality:PROVENANCE.md#L147-L149": {
+      "at": "hyperreality:PROVENANCE.md",
+      "pin": "04181471bc4206bbb5da07163a8a2d2e6e32c227",
+      "sha256": "d50e04d42cefd09e48f19ec2845b7cdcbd5b8b4c2649b29b7f15caca8c17f815"
+    },
+    "hyperreality:PROVENANCE.md#L159-L159": {
+      "at": "hyperreality:PROVENANCE.md",
+      "pin": "04181471bc4206bbb5da07163a8a2d2e6e32c227",
+      "sha256": "1d7658d147606fb2382d9ad0638f8c23ccfe4439b4158586b4947d1bcca26cd7"
+    },
+    "hyperreality:PROVENANCE.md#L99-L99": {
+      "at": "hyperreality:PROVENANCE.md",
+      "pin": "04181471bc4206bbb5da07163a8a2d2e6e32c227",
+      "sha256": "2520a002b5416f0eafdacf7153b69709135f1a9680803318cc7759f0bfe7bb01"
+    },
+    "hyperreality:README.md#L38-L44": {
       "at": "hyperreality:README.md",
       "pin": "04181471bc4206bbb5da07163a8a2d2e6e32c227",
       "sha256": "e0325a607e4f9cba9da1ef070a18eedf0135d4d14a142c0fa85fb5e909aed512"
@@ -54,6 +124,16 @@
       "at": "hyperspace:FIELD_SPEC.md",
       "pin": "8e53166f125ec9053937ac52ab6c521264d0ccd6",
       "sha256": "f34d70ab4b87b5bc3582219fc9da19a24dc84acb548eafea35cb2624351ec180"
+    },
+    "ordinatics:docs/exponent_axis_and_rank_order.md#L25-L25": {
+      "at": "ordinatics:docs/exponent_axis_and_rank_order.md",
+      "pin": "0b89505af1023004a733c682b154d9351d1d6042",
+      "sha256": "6ce1a2f6424d702e76893130279d11942cb48900555fc2619a001e840cb941e3"
+    },
+    "ordinatics:docs/exponent_axis_and_rank_order.md#L34-L49": {
+      "at": "ordinatics:docs/exponent_axis_and_rank_order.md",
+      "pin": "0b89505af1023004a733c682b154d9351d1d6042",
+      "sha256": "ffacc93171dc2efb64a32d71ac3b7dbcfb3e6ff11e1f17c42a88e437c66123d8"
     }
   },
   "schema": "hyperstratum-ref-lock/1"

@@ -12,7 +12,7 @@ Where three hyperfields meet one term. The quoted passages below are not copied:
 
 ## What hyperreality says about who owns what
 
-[[hyperreality:README.md#L31-L37]]
+[[hyperreality:README.md#L38-L44]]
 
 ## Reading the seam
 
