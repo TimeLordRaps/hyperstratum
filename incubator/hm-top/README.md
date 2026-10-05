@@ -22,3 +22,7 @@ one-node loop (partition refinement). A one-sided loop is not bisimilar (negativ
 realities directly) and checks the derived criterion: S ~ U iff U contains the realities and (S contains a copy of the whole exactly when
 U does). 4 of 16 are bisimilar; the owner's "only U contains S and itself" is not (a wrong, earlier predicate of mine is rejected by the
 enumeration, which is how it was caught).
+
+## Added: a finite toy for anchoring preality at both ends
+
+`preality_anchor.py` (Arnold's cat map on a 60 x 60 torus, 10 x 10 coarse-graining; a non-reversible map is rejected): infinite time in finite space is a loop (period 60, so an exhaustive run is exact enumeration of a finite set); a microstate has one exact past while a macro-moment has one timeline per compatible microstate (100); anchoring a second macro-moment later keeps 1 to 9 of those 100 (mean 2.8 over 36 possible end macrostates). It illustrates what "locked landmark additional to the big bang" can mean (a two-boundary problem), not that any physical system behaves this way.

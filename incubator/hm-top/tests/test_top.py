@@ -83,3 +83,20 @@ def test_a_wrong_predicate_is_rejected_by_the_enumeration(tmp_path):
     p.write_text(src, encoding="utf-8")
     r = subprocess.run([sys.executable, str(p)], capture_output=True, text=True, timeout=120)
     assert r.returncode != 0 and "AssertionError" in r.stderr
+
+
+def test_preality_anchor_toy_loop_unique_past_and_two_point_lock():
+    r = subprocess.run([sys.executable, "preality_anchor.py"], cwd=HERE, capture_output=True, text=True, timeout=120)
+    print(r.stdout, r.stderr)
+    assert r.returncode == 0, r.stderr[-600:]
+    for tag in ("0. ", "1. ", "2. ", "3. "):
+        assert any(ln.startswith(tag) for ln in r.stdout.splitlines()), tag
+
+
+def test_a_non_reversible_map_is_rejected_by_the_toy(tmp_path):
+    src = (HERE / "preality_anchor.py").read_text(encoding="utf-8").replace(
+        "return ((2 * x + y) % n, (x + y) % n)", "return ((2 * x + y) % n, (2 * x + 2 * y) % n)", 1)
+    p = tmp_path / "bad.py"
+    p.write_text(src, encoding="utf-8")
+    r = subprocess.run([sys.executable, str(p)], capture_output=True, text=True, timeout=120)
+    assert r.returncode != 0 and "AssertionError" in r.stderr
