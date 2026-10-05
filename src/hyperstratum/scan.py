@@ -298,7 +298,7 @@ def candidate_terms(scans: dict[str, FieldScan], terms: list[lexicon.Term], reg:
     """`hyper*` words the fields use that the lexicon does not define.
 
     Only the hyper- family is detected; a coinage in another shape (the owner's
-    "universempiternality") is invisible here, and the page says so.
+    "universempiternity") is invisible here, and the page says so.
     """
     known = {t.slug for t in terms} | {f.name for f in reg.fields} | {"hyperstratum"}
     known |= {t.slug.replace("-", "") for t in terms}

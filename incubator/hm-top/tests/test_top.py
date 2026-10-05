@@ -69,15 +69,15 @@ def test_a_one_sided_loop_is_not_bisimilar_to_the_self_containing_top(tmp_path):
     assert r.returncode != 0 and "AssertionError" in r.stderr
 
 
-def test_sempiternality_vs_container_bisimulation_table():
-    r = subprocess.run([sys.executable, "sempiternality_bisim.py"], cwd=HERE, capture_output=True, text=True, timeout=120)
+def test_sempiternity_vs_container_bisimulation_table():
+    r = subprocess.run([sys.executable, "sempiternity_bisim.py"], cwd=HERE, capture_output=True, text=True, timeout=120)
     print(r.stdout, r.stderr)
     assert r.returncode == 0, r.stderr[-600:]
-    assert "4 of 16 are bisimilar" in r.stdout and "B. " in r.stdout
+    assert "4 of 16 are bisimilar" in r.stdout and "B. " in r.stdout and "C. " in r.stdout and "D. " in r.stdout
 
 
 def test_a_wrong_predicate_is_rejected_by_the_enumeration(tmp_path):
-    src = (HERE / "sempiternality_bisim.py").read_text(encoding="utf-8").replace(
+    src = (HERE / "sempiternity_bisim.py").read_text(encoding="utf-8").replace(
         "expected = u_real and (s_self == (u_self or u_has_s))", "expected = u_real and s_self and (u_self or u_has_s)")
     p = tmp_path / "bad.py"
     p.write_text(src, encoding="utf-8")

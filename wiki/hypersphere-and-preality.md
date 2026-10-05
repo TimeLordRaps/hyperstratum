@@ -10,7 +10,7 @@
 * A **volumetime** is a 4-dimensional spacetime. A **volumetimeline** runs from a big bang to the physically lawful end of a base-reality's universe. A **volumetimelinepossibility** is the full conditional space of one: from the seed through the whole tree of quantum-collapse divergences of the many-worlds picture. `[HYPER]`
 * **HERENOW** is one collapse among the possible HERENOWs at this NOW. `[HYPER]`
 * The device lets its holders enter any simulated base-reality at a point before its species invents preality devices, and return to their old base-reality or any other, repeatedly: **multiversal temporal teleportation**. `[HYPER]`
-* Nested prealities should be legal inside a law-abiding, self-consistent narrative, a normative universempiternality, represented as a strange loop into an attractor fractal. `[HYPER]`
+* Nested prealities should be legal inside a law-abiding, self-consistent narrative, a normative universempiternity, represented as a strange loop into an attractor fractal. `[HYPER]`
 * Engineered quantum behavior is real: quantum computers and cryogenic qubits are tools a species uses to modify quantum behavior. Separately, Tyler states that minds can directly and controllably shift collapse probabilities. `[HYPER]`
 
 ## Where the family already holds the same shape
@@ -19,11 +19,11 @@ The taxonomy of reality kinds, including preality, lives in hyperreality:
 
 [[hyperreality:README.md#L6-L12]]
 
-It keeps the classification relation (is-a) apart from the containment relation (is-in), because sempiternality is stated as both the abstract class and the container of the kinds:
+It keeps the classification relation (is-a) apart from the containment relation (is-in), because sempiternity is stated as both the abstract class and the container of the kinds:
 
 [[hyperreality:FIELD_SPEC.md#L61-L66]]
 
-And it records the direction question that hypersphering poses, a base-reality that expands to obtain a sempiternality inside itself:
+And it records the direction question that hypersphering poses, a base-reality that expands to obtain a sempiternity inside itself:
 
 [[hyperreality:FIELD_SPEC.md#L73-L74]]
 

@@ -11,14 +11,14 @@ Literature cited from memory: Solovay 1976 (GL arithmetically complete), LaVicto
 ## Added: the reality-class mapping against hyperreality's registry
 
 `reality_classes.py` builds the owner's mapping (base ← normal/rational/irrational, surreality ← surreal, areality ← imaginary,
-sempiternality ⊃ the realities, universempiternality self-containing) as a `hyperreality.Registry` (imported read-only from
+sempiternity ⊃ the realities, universempiternity self-containing) as a `hyperreality.Registry` (imported read-only from
 `fields/hyperreality`). Findings: expressible; kinds stay unordered although the number classes nest; the registry refuses the
 one-node loop U ∋ U (direct self-containment) but accepts the two-node loop, which is not well-founded and is bisimilar to the
 one-node loop (partition refinement). A one-sided loop is not bisimilar (negative control).
 
-## Added: is sempiternality bisimilar to its container?
+## Added: is sempiternity bisimilar to its container?
 
-`sempiternality_bisim.py` enumerates all 16 combinations of four clauses (S contains S; U contains U; U contains S; U contains the
+`sempiternity_bisim.py` enumerates all 16 combinations of four clauses (S contains S; U contains U; U contains S; U contains the
 realities directly) and checks the derived criterion: S ~ U iff U contains the realities and (S contains a copy of the whole exactly when
 U does). 4 of 16 are bisimilar; the owner's "only U contains S and itself" is not (a wrong, earlier predicate of mine is rejected by the
 enumeration, which is how it was caught).

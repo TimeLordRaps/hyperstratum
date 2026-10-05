@@ -1,4 +1,4 @@
-"""Is sempiternality S bisimilar to its container universempiternality U?
+"""Is sempiternity S bisimilar to its container universempiternity U?
 
 Containment graph: an edge A -> B means "A contains B". Realities r1..r5 are leaves. Bisimilar = same block of the
 coarsest partition in which equivalent nodes have the same set of successor blocks (partition refinement).
@@ -59,3 +59,33 @@ print(f"A. all 16 variants match: S ~ U iff u_real and (s_self == (u_self or u_h
 n, e = variant(False, True, True, True)  # U contains S, itself and the realities; S contains only the realities
 assert bisim(n, e)["S"] != bisim(n, e)["U"]
 print("B. 'U contains S, itself and the realities; S contains only the realities': NOT bisimilar (U holds a copy of the whole, S does not)")
+
+# C. If S must NOT contain itself (owner, 2026-10-05: "if U contains U then S needs to contain S ... doesn't feel right"),
+#    then S is bisimilar to NO self-containing U: the criterion forces s_self == (u_self or u_has_s).
+for u_self, u_has_s, u_real in itertools.product([False, True], repeat=3):
+    if u_self or u_has_s:
+        n, e = variant(False, u_self, u_has_s, u_real)
+        p = bisim(n, e)
+        assert p["S"] != p["U"], (u_self, u_has_s, u_real)
+print("C. with S not containing itself, S is bisimilar to no U that contains itself or S: they are different objects")
+
+# D. U is still determined: every presentation of 'U contains S, itself and the realities' is bisimilar to every other
+#    (one-node loop, two-node loop, three-node loop), so U is unique up to ==, as the solution of  U = {S, U, r1..r5}.
+def presentation(k, tag):
+    """k-node ring u0 -> u1 -> ... -> u_{k-1} -> u0, each also containing S and the realities."""
+    nodes = [f"{tag}{i}" for i in range(k)]
+    edges = [(nodes[i], nodes[(i + 1) % k]) for i in range(k)]
+    edges += [(n, "S") for n in nodes] + [(n, r) for n in nodes for r in R]
+    return nodes, edges
+
+
+nodes, edges = ["S"] + R, [("S", r) for r in R]
+rings = {}
+for k in (1, 2, 3):
+    ns, es = presentation(k, f"k{k}_")
+    nodes, edges = nodes + ns, edges + es
+    rings[k] = ns[0]
+part = bisim(nodes, edges)
+assert len({part[rings[k]] for k in (1, 2, 3)}) == 1
+assert part[rings[1]] != part["S"]
+print("D. the 1-, 2- and 3-node presentations of U are one object up to ==, and it is not S")

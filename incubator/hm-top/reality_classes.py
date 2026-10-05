@@ -1,17 +1,17 @@
 """The owner's reality-class mapping, built as a hyperreality Registry and checked against its rules.
 
 Owner (USER-STATED 2026-10-04): base:normal, surreality:surreal, areality:imaginary, rational and irrational both
-in base-reality; sempiternality encompasses them as ω^ω; universempiternality closes over sempiternality as the
+in base-reality; sempiternity encompasses them as ω^ω; universempiternity closes over sempiternity as the
 self-containing superclass.
 
 hyperreality's registry (fields/hyperreality/hyperreality.py, imported read-only) has two relations that are never
 inferred from each other (Classification is-a, Containment is-in), unordered kinds, and `well_founded` reported not
 enforced. Checks:
-  1. the mapping is expressible: kinds are classes of number-representations, sempiternality is a Whole that contains
+  1. the mapping is expressible: kinds are classes of number-representations, sempiternity is a Whole that contains
      the realities and classifies nothing;
   2. kinds stay unordered even though the number classes they are mapped to nest (ordinals ⊂ surreals ⊂ surcomplex):
      the mapping must not be read as inclusion between kinds;
-  3. universempiternality as a one-node loop is NOT expressible (direct self-containment raises); the two-node loop is,
+  3. universempiternity as a one-node loop is NOT expressible (direct self-containment raises); the two-node loop is,
      is not well-founded, and is bisimilar to the one-node loop (partition refinement), the same fact as '== is
      bisimilarity' and as the conatural top with succ(top) = top.
 """
@@ -44,7 +44,7 @@ realities = (
     hr.Presentation("r-surreal", "surreality"),
     hr.Presentation("r-imaginary", "areality"),
 )
-S = hr.Whole("S", "sempiternality")
+S = hr.Whole("S", "sempiternity")
 base_reg = hr.Registry(
     kinds=(base, sur, are),
     presentations=realities,
@@ -53,11 +53,11 @@ base_reg = hr.Registry(
 )
 assert hr.well_founded(base_reg)
 assert hr.members_of(base_reg, "S") == frozenset(p.reality_id for p in realities)
-assert hr.classes_of(base_reg, "S") == frozenset()  # sempiternality contains; containment never classifies
-print("1. sempiternality S contains the five realities, classifies nothing, containment well-founded")
+assert hr.classes_of(base_reg, "S") == frozenset()  # sempiternity contains; containment never classifies
+print("1. sempiternity S contains the five realities, classifies nothing, containment well-founded")
 
-# 3. universempiternality
-U = hr.Whole("U", "universempiternality")
+# 3. universempiternity
+U = hr.Whole("U", "universempiternity")
 try:
     hr.Containment("U", "U")
 except ValueError:
@@ -65,7 +65,7 @@ except ValueError:
 else:
     raise AssertionError("expected refusal")
 
-U1, U2 = hr.Whole("U1", "universempiternality"), hr.Whole("U2", "universempiternality")
+U1, U2 = hr.Whole("U1", "universempiternity"), hr.Whole("U2", "universempiternity")
 loop_reg = hr.Registry(
     kinds=(base, sur, are),
     presentations=realities,
