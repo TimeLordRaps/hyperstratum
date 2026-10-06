@@ -38,6 +38,16 @@ The L0 triangle read as the three positions of a closed clock (proposed, outside
 
 [[hyperlogic:DESIGN.md#L199-L216]]
 
+## The chain, as a library and as a theorem
+
+The finite model, stated once with its validity conditions and failure modes (hyperphysics `hyperphysics.chain`):
+
+[[hyperphysics:README.md#L138-L161]]
+
+Its discrete shadow, proved in Lean (a chain's violation count is zero exactly when every step is valid, derivation is forced by the start, a closed circuit repeats):
+
+[[hypermath:docs/research/LADDER_INDUCTION.md#L285-L287]]
+
 ## Where it sits in the hierarchy
 
 Counterparts as a third relation, the atemporal base-reality as the nullspace within sempiternity, and the preality law:

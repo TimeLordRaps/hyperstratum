@@ -17,112 +17,122 @@
     },
     "hypermath:L3_ordinatics.hm#L130-L130": {
       "at": "hypermath:L3_ordinatics.hm",
-      "pin": "6be0dad71adc0924c41d0b7a857f96bdb6c5c151",
+      "pin": "a34017995372329c8b9d62fbdda9217aa5b5078b",
       "sha256": "d1593bcf4754335a982080596cf6d7089e0cd3e7af886b0ffaa6397d80a1e389"
     },
     "hypermath:README.md#L1-L1": {
       "at": "hypermath:README.md",
-      "pin": "6be0dad71adc0924c41d0b7a857f96bdb6c5c151",
+      "pin": "a34017995372329c8b9d62fbdda9217aa5b5078b",
       "sha256": "d97ee16416f69290a529dc0663b654cd1bfe84d6f5b5490af2836d3bde6e491a"
+    },
+    "hypermath:docs/research/LADDER_INDUCTION.md#L285-L287": {
+      "at": "hypermath:docs/research/LADDER_INDUCTION.md",
+      "pin": "a34017995372329c8b9d62fbdda9217aa5b5078b",
+      "sha256": "47e78ea1bd29914c4b252afa5e18ee9a509a2c70821ec4eb906de5f9cacce1db"
     },
     "hypermath:docs/research/LADDER_INDUCTION.md#L67-L67": {
       "at": "hypermath:docs/research/LADDER_INDUCTION.md",
-      "pin": "6be0dad71adc0924c41d0b7a857f96bdb6c5c151",
+      "pin": "a34017995372329c8b9d62fbdda9217aa5b5078b",
       "sha256": "ede72aa85a185afd40b1225e432926abf505cd5c026691bea5f02ea7311a88d7"
     },
     "hypermath:docs/research/LADDER_INDUCTION.md#L71-L71": {
       "at": "hypermath:docs/research/LADDER_INDUCTION.md",
-      "pin": "6be0dad71adc0924c41d0b7a857f96bdb6c5c151",
+      "pin": "a34017995372329c8b9d62fbdda9217aa5b5078b",
       "sha256": "d1e74baf41529b57d79078b356e650f1d7d981399bf08b731cfb319c35a1a922"
     },
     "hypermath:docs/research/LADDER_INDUCTION.md#L75-L75": {
       "at": "hypermath:docs/research/LADDER_INDUCTION.md",
-      "pin": "6be0dad71adc0924c41d0b7a857f96bdb6c5c151",
+      "pin": "a34017995372329c8b9d62fbdda9217aa5b5078b",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "hypermath:docs/research/LADDER_INDUCTION.md#L79-L79": {
       "at": "hypermath:docs/research/LADDER_INDUCTION.md",
-      "pin": "6be0dad71adc0924c41d0b7a857f96bdb6c5c151",
+      "pin": "a34017995372329c8b9d62fbdda9217aa5b5078b",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "hypermath:docs/research/LADDER_INDUCTION.md#L83-L83": {
       "at": "hypermath:docs/research/LADDER_INDUCTION.md",
-      "pin": "6be0dad71adc0924c41d0b7a857f96bdb6c5c151",
+      "pin": "a34017995372329c8b9d62fbdda9217aa5b5078b",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "hypermath:lean4/FiniteActionCountermodel.lean#L66-L68": {
       "at": "hypermath:lean4/FiniteActionCountermodel.lean",
-      "pin": "6be0dad71adc0924c41d0b7a857f96bdb6c5c151",
+      "pin": "a34017995372329c8b9d62fbdda9217aa5b5078b",
       "sha256": "21bdb468ea510e0dc9e7c96079cf81dcab053622263f8279267ed175c58fe420"
     },
     "hypermath:lean4/Hypermath/L3Ordinatics.lean#L54-L54": {
       "at": "hypermath:lean4/Hypermath/L3Ordinatics.lean",
-      "pin": "6be0dad71adc0924c41d0b7a857f96bdb6c5c151",
+      "pin": "a34017995372329c8b9d62fbdda9217aa5b5078b",
       "sha256": "7bd1abb65d9ed3107ff2d1f546b316c60ebdb8ebbc865170eddcab268f1b7aa8"
     },
     "hyperphysics:FIELD_STACK.md#L11-L15": {
       "at": "hyperphysics:FIELD_STACK.md",
-      "pin": "2f66d97b7085c2cd012728b8654ee36b66e5301c",
+      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
       "sha256": "43306347c53a17500976f3bc7e0a2695498990b280a8f898cd0b1fffd9362047"
+    },
+    "hyperphysics:README.md#L138-L161": {
+      "at": "hyperphysics:README.md",
+      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
+      "sha256": "bc9d48ceeb9fb54ab6a83f3e44b517ce184be4a1bdb6b468db002c9730a1ab7d"
     },
     "hyperphysics:docs/research/QUANTUM_GRAVITY_CANDIDATES.md#L14-L19": {
       "at": "hyperphysics:docs/research/QUANTUM_GRAVITY_CANDIDATES.md",
-      "pin": "2f66d97b7085c2cd012728b8654ee36b66e5301c",
+      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
       "sha256": "89262e42c616f6ae81759afc72858a34f41e0c7a08e90cf5fb1f243c798c83b0"
     },
     "hyperphysics:docs/research/QUANTUM_GRAVITY_CANDIDATES.md#L21-L32": {
       "at": "hyperphysics:docs/research/QUANTUM_GRAVITY_CANDIDATES.md",
-      "pin": "2f66d97b7085c2cd012728b8654ee36b66e5301c",
+      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
       "sha256": "9053e0c9ad3d41b7b06521e64545cb8c9710a5b6697274ee635aaa2f04f33e1d"
     },
     "hyperphysics:docs/research/QUANTUM_GRAVITY_CANDIDATES.md#L34-L40": {
       "at": "hyperphysics:docs/research/QUANTUM_GRAVITY_CANDIDATES.md",
-      "pin": "2f66d97b7085c2cd012728b8654ee36b66e5301c",
+      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
       "sha256": "d124efeab013abf53e1cca9d3796d657ec37f06e163821fe85192ab63e1cfba0"
     },
     "hyperphysics:docs/research/QUANTUM_GRAVITY_CANDIDATES.md#L50-L56": {
       "at": "hyperphysics:docs/research/QUANTUM_GRAVITY_CANDIDATES.md",
-      "pin": "2f66d97b7085c2cd012728b8654ee36b66e5301c",
+      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
       "sha256": "0313e5bf578fc31d000ab1cbfc6e9e1270f556ecad54da824d4ffdadab2fbfb3"
     },
     "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md#L105-L112": {
       "at": "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md",
-      "pin": "2f66d97b7085c2cd012728b8654ee36b66e5301c",
+      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
       "sha256": "f7efcb6267be32b99a0b2d7f852f1988e79a27cb16b83cd27dd95bb627f8376f"
     },
     "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md#L114-L121": {
       "at": "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md",
-      "pin": "2f66d97b7085c2cd012728b8654ee36b66e5301c",
+      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
       "sha256": "a6264ceb963a664df3aa24eee410c55596cfe4bb435834482ff45811c238e704"
     },
     "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md#L123-L130": {
       "at": "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md",
-      "pin": "2f66d97b7085c2cd012728b8654ee36b66e5301c",
+      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
       "sha256": "caa28676b3063f73982286a0afb83466738061e09e7a4c6f6c5ac32a50ad1a99"
     },
     "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md#L46-L56": {
       "at": "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md",
-      "pin": "2f66d97b7085c2cd012728b8654ee36b66e5301c",
+      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
       "sha256": "eafc7f7558c74000681698d3a66cfbfb3e943272cbbc460db10c0571612720d4"
     },
     "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md#L5-L14": {
       "at": "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md",
-      "pin": "2f66d97b7085c2cd012728b8654ee36b66e5301c",
+      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
       "sha256": "8c5ed17a3d86ff4731dda5651db38fd36b2a3ed2becef459a52029d326437425"
     },
     "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md#L58-L67": {
       "at": "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md",
-      "pin": "2f66d97b7085c2cd012728b8654ee36b66e5301c",
+      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
       "sha256": "1fd46c95e576e1389e112d37bdb0484b4192202dfd8088099f55686667fb3098"
     },
     "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md#L95-L103": {
       "at": "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md",
-      "pin": "2f66d97b7085c2cd012728b8654ee36b66e5301c",
+      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
       "sha256": "ae95ab881dc5767d9efd77c90664578c1f88f008bc76effff5aa29ed92c522e8"
     },
     "hyperphysics:docs/research/TIME_COMB_LIMITS.md#L1-L12": {
       "at": "hyperphysics:docs/research/TIME_COMB_LIMITS.md",
-      "pin": "2f66d97b7085c2cd012728b8654ee36b66e5301c",
+      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
       "sha256": "a40d773b04506795ffc5fe5cfb2a568d2382c28190881fe47b4900a3baed1b27"
     },
     "hyperreality:FIELD_SPEC.md#L120-L131": {
