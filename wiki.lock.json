@@ -7,12 +7,12 @@
     },
     "hyperlogic:DESIGN.md#L146-L150": {
       "at": "hyperlogic:DESIGN.md",
-      "pin": "11c433c6df201785894d365f682fe9aa11bc66f3",
+      "pin": "09231650d41919708824dd734a082ac9259d2f16",
       "sha256": "3d235cc99de4ae07520c85e8888c3383e4efaad0822895b94d5051375453ba9c"
     },
     "hyperlogic:DESIGN.md#L199-L216": {
       "at": "hyperlogic:DESIGN.md",
-      "pin": "11c433c6df201785894d365f682fe9aa11bc66f3",
+      "pin": "09231650d41919708824dd734a082ac9259d2f16",
       "sha256": "6244d97f5599560080fdbb3cabaa463af0227ce42c3a7ec734d1bc17a6628dca"
     },
     "hypermath:L3_ordinatics.hm#L130-L130": {
@@ -39,6 +39,11 @@
       "at": "hypermath:docs/research/LADDER_INDUCTION.md",
       "pin": "a34017995372329c8b9d62fbdda9217aa5b5078b",
       "sha256": "d1e74baf41529b57d79078b356e650f1d7d981399bf08b731cfb319c35a1a922"
+    },
+    "hypermath:docs/research/LADDER_INDUCTION.md#L73-L73": {
+      "at": "hypermath:docs/research/LADDER_INDUCTION.md",
+      "pin": "a34017995372329c8b9d62fbdda9217aa5b5078b",
+      "sha256": "b41469b06295dd6c3cbb9d9516f5a4a01f364fa0e5435712ce7f15a11cb2cc88"
     },
     "hypermath:docs/research/LADDER_INDUCTION.md#L75-L75": {
       "at": "hypermath:docs/research/LADDER_INDUCTION.md",
@@ -67,148 +72,173 @@
     },
     "hyperphysics:FIELD_STACK.md#L11-L15": {
       "at": "hyperphysics:FIELD_STACK.md",
-      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
+      "pin": "daded1f7a3697c1d4bd1e9764264731024fdde04",
       "sha256": "43306347c53a17500976f3bc7e0a2695498990b280a8f898cd0b1fffd9362047"
     },
     "hyperphysics:README.md#L138-L161": {
       "at": "hyperphysics:README.md",
-      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
+      "pin": "daded1f7a3697c1d4bd1e9764264731024fdde04",
       "sha256": "bc9d48ceeb9fb54ab6a83f3e44b517ce184be4a1bdb6b468db002c9730a1ab7d"
+    },
+    "hyperphysics:docs/research/POSSIBILITIES_AND_SUPERPOSITIONS.md#L5-L14": {
+      "at": "hyperphysics:docs/research/POSSIBILITIES_AND_SUPERPOSITIONS.md",
+      "pin": "daded1f7a3697c1d4bd1e9764264731024fdde04",
+      "sha256": "1342de8fd41f65421818a76fbd3663465a5315373f7ce8a2660f3357584d5e6e"
     },
     "hyperphysics:docs/research/QUANTUM_GRAVITY_CANDIDATES.md#L14-L19": {
       "at": "hyperphysics:docs/research/QUANTUM_GRAVITY_CANDIDATES.md",
-      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
+      "pin": "daded1f7a3697c1d4bd1e9764264731024fdde04",
       "sha256": "89262e42c616f6ae81759afc72858a34f41e0c7a08e90cf5fb1f243c798c83b0"
     },
     "hyperphysics:docs/research/QUANTUM_GRAVITY_CANDIDATES.md#L21-L32": {
       "at": "hyperphysics:docs/research/QUANTUM_GRAVITY_CANDIDATES.md",
-      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
+      "pin": "daded1f7a3697c1d4bd1e9764264731024fdde04",
       "sha256": "9053e0c9ad3d41b7b06521e64545cb8c9710a5b6697274ee635aaa2f04f33e1d"
     },
     "hyperphysics:docs/research/QUANTUM_GRAVITY_CANDIDATES.md#L34-L40": {
       "at": "hyperphysics:docs/research/QUANTUM_GRAVITY_CANDIDATES.md",
-      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
+      "pin": "daded1f7a3697c1d4bd1e9764264731024fdde04",
       "sha256": "d124efeab013abf53e1cca9d3796d657ec37f06e163821fe85192ab63e1cfba0"
     },
     "hyperphysics:docs/research/QUANTUM_GRAVITY_CANDIDATES.md#L50-L56": {
       "at": "hyperphysics:docs/research/QUANTUM_GRAVITY_CANDIDATES.md",
-      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
+      "pin": "daded1f7a3697c1d4bd1e9764264731024fdde04",
       "sha256": "0313e5bf578fc31d000ab1cbfc6e9e1270f556ecad54da824d4ffdadab2fbfb3"
+    },
+    "hyperphysics:docs/research/SELF_CONSISTENT_CORRECTION.md#L5-L10": {
+      "at": "hyperphysics:docs/research/SELF_CONSISTENT_CORRECTION.md",
+      "pin": "daded1f7a3697c1d4bd1e9764264731024fdde04",
+      "sha256": "052a20ac55a31f2405d3c1002f63cadf5b61343cba2666010a65e19fa9fc86da"
     },
     "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md#L105-L112": {
       "at": "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md",
-      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
+      "pin": "daded1f7a3697c1d4bd1e9764264731024fdde04",
       "sha256": "f7efcb6267be32b99a0b2d7f852f1988e79a27cb16b83cd27dd95bb627f8376f"
     },
     "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md#L114-L121": {
       "at": "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md",
-      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
+      "pin": "daded1f7a3697c1d4bd1e9764264731024fdde04",
       "sha256": "a6264ceb963a664df3aa24eee410c55596cfe4bb435834482ff45811c238e704"
     },
     "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md#L123-L130": {
       "at": "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md",
-      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
+      "pin": "daded1f7a3697c1d4bd1e9764264731024fdde04",
       "sha256": "caa28676b3063f73982286a0afb83466738061e09e7a4c6f6c5ac32a50ad1a99"
     },
     "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md#L46-L56": {
       "at": "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md",
-      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
+      "pin": "daded1f7a3697c1d4bd1e9764264731024fdde04",
       "sha256": "eafc7f7558c74000681698d3a66cfbfb3e943272cbbc460db10c0571612720d4"
     },
     "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md#L5-L14": {
       "at": "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md",
-      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
+      "pin": "daded1f7a3697c1d4bd1e9764264731024fdde04",
       "sha256": "8c5ed17a3d86ff4731dda5651db38fd36b2a3ed2becef459a52029d326437425"
     },
     "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md#L58-L67": {
       "at": "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md",
-      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
+      "pin": "daded1f7a3697c1d4bd1e9764264731024fdde04",
       "sha256": "1fd46c95e576e1389e112d37bdb0484b4192202dfd8088099f55686667fb3098"
     },
     "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md#L95-L103": {
       "at": "hyperphysics:docs/research/TIME_BUBBLE_SHEET.md",
-      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
+      "pin": "daded1f7a3697c1d4bd1e9764264731024fdde04",
       "sha256": "ae95ab881dc5767d9efd77c90664578c1f88f008bc76effff5aa29ed92c522e8"
     },
     "hyperphysics:docs/research/TIME_COMB_LIMITS.md#L1-L12": {
       "at": "hyperphysics:docs/research/TIME_COMB_LIMITS.md",
-      "pin": "baecae5811cbb19c85d776f587e4df0d383a5f2e",
+      "pin": "daded1f7a3697c1d4bd1e9764264731024fdde04",
       "sha256": "a40d773b04506795ffc5fe5cfb2a568d2382c28190881fe47b4900a3baed1b27"
+    },
+    "hyperphysics:src/hyperphysics/chain.py#L1-L25": {
+      "at": "hyperphysics:src/hyperphysics/chain.py",
+      "pin": "daded1f7a3697c1d4bd1e9764264731024fdde04",
+      "sha256": "7f1ac41a9d331ece8c3cc953b376fa7060b14bd8bf8b3553a2587a0db22addde"
+    },
+    "hyperreality:FIELD_SPEC.md#L106-L115": {
+      "at": "hyperreality:FIELD_SPEC.md",
+      "pin": "9e217aef1c39228bb1042c9ebc10b59cacefafc4",
+      "sha256": "ecfb6646ed90114ba1f6396342ef1b282735093b3b70c15b22b2ed9be27f245f"
     },
     "hyperreality:FIELD_SPEC.md#L120-L131": {
       "at": "hyperreality:FIELD_SPEC.md",
-      "pin": "b0e3ed46cd2ae0cd39c67163a34d80555dace812",
-      "sha256": "9e45d5799c3ff37b61305b8256af4aced27039618cf7aa2476546e13715699fc"
+      "pin": "9e217aef1c39228bb1042c9ebc10b59cacefafc4",
+      "sha256": "1f2820606dccf8c92d18e638f20691aaf3e0b3e92350a44d5a8ba307793d092a"
     },
     "hyperreality:FIELD_SPEC.md#L133-L137": {
       "at": "hyperreality:FIELD_SPEC.md",
-      "pin": "b0e3ed46cd2ae0cd39c67163a34d80555dace812",
+      "pin": "9e217aef1c39228bb1042c9ebc10b59cacefafc4",
       "sha256": "f018848e8e2d757756f637f3c7e7970ceddd7956e51b154c906705d2d50718cb"
     },
     "hyperreality:FIELD_SPEC.md#L60-L66": {
       "at": "hyperreality:FIELD_SPEC.md",
-      "pin": "b0e3ed46cd2ae0cd39c67163a34d80555dace812",
+      "pin": "9e217aef1c39228bb1042c9ebc10b59cacefafc4",
       "sha256": "3aff172d99973df659d340f1705932dc87e73738bdcb3d413259ba72d98393c4"
     },
     "hyperreality:FIELD_SPEC.md#L74-L75": {
       "at": "hyperreality:FIELD_SPEC.md",
-      "pin": "b0e3ed46cd2ae0cd39c67163a34d80555dace812",
+      "pin": "9e217aef1c39228bb1042c9ebc10b59cacefafc4",
       "sha256": "b67c1b09a23ad735f48db002abb74f0d763c06148871f6fb1009979c119c4c0f"
     },
     "hyperreality:PROVENANCE.md#L113-L113": {
       "at": "hyperreality:PROVENANCE.md",
-      "pin": "b0e3ed46cd2ae0cd39c67163a34d80555dace812",
+      "pin": "9e217aef1c39228bb1042c9ebc10b59cacefafc4",
       "sha256": "9d8350c99fe757add44a53acb79a2f8cec8220fdf15d003a1f9f34e527a43a18"
     },
     "hyperreality:PROVENANCE.md#L123-L123": {
       "at": "hyperreality:PROVENANCE.md",
-      "pin": "b0e3ed46cd2ae0cd39c67163a34d80555dace812",
+      "pin": "9e217aef1c39228bb1042c9ebc10b59cacefafc4",
       "sha256": "8827d2cf4c881626c46b354e727455c88cca1c86f49f9e5d7930748aa978d415"
     },
     "hyperreality:PROVENANCE.md#L127-L127": {
       "at": "hyperreality:PROVENANCE.md",
-      "pin": "b0e3ed46cd2ae0cd39c67163a34d80555dace812",
+      "pin": "9e217aef1c39228bb1042c9ebc10b59cacefafc4",
       "sha256": "6710978e28e3043ecd08a2c23f77085ff3712493824f13efa353493a1740e8f2"
     },
     "hyperreality:PROVENANCE.md#L135-L135": {
       "at": "hyperreality:PROVENANCE.md",
-      "pin": "b0e3ed46cd2ae0cd39c67163a34d80555dace812",
+      "pin": "9e217aef1c39228bb1042c9ebc10b59cacefafc4",
       "sha256": "adc05fdbff85f4e69258ad9dc2694175f38f672476c3b797fd0bd8480d25e677"
     },
     "hyperreality:PROVENANCE.md#L139-L139": {
       "at": "hyperreality:PROVENANCE.md",
-      "pin": "b0e3ed46cd2ae0cd39c67163a34d80555dace812",
+      "pin": "9e217aef1c39228bb1042c9ebc10b59cacefafc4",
       "sha256": "0c51f893d0f7b4e98734dab4219be062095bfc56540fcbe60d197d82025b9f85"
     },
     "hyperreality:PROVENANCE.md#L147-L149": {
       "at": "hyperreality:PROVENANCE.md",
-      "pin": "b0e3ed46cd2ae0cd39c67163a34d80555dace812",
+      "pin": "9e217aef1c39228bb1042c9ebc10b59cacefafc4",
       "sha256": "d50e04d42cefd09e48f19ec2845b7cdcbd5b8b4c2649b29b7f15caca8c17f815"
     },
     "hyperreality:PROVENANCE.md#L159-L159": {
       "at": "hyperreality:PROVENANCE.md",
-      "pin": "b0e3ed46cd2ae0cd39c67163a34d80555dace812",
+      "pin": "9e217aef1c39228bb1042c9ebc10b59cacefafc4",
       "sha256": "1d7658d147606fb2382d9ad0638f8c23ccfe4439b4158586b4947d1bcca26cd7"
     },
     "hyperreality:PROVENANCE.md#L163-L187": {
       "at": "hyperreality:PROVENANCE.md",
-      "pin": "b0e3ed46cd2ae0cd39c67163a34d80555dace812",
+      "pin": "9e217aef1c39228bb1042c9ebc10b59cacefafc4",
       "sha256": "89f8576df627bd233170527ac369528a53ac755ad10165755afa58993eb3da56"
     },
     "hyperreality:PROVENANCE.md#L99-L99": {
       "at": "hyperreality:PROVENANCE.md",
-      "pin": "b0e3ed46cd2ae0cd39c67163a34d80555dace812",
+      "pin": "9e217aef1c39228bb1042c9ebc10b59cacefafc4",
       "sha256": "2520a002b5416f0eafdacf7153b69709135f1a9680803318cc7759f0bfe7bb01"
     },
     "hyperreality:README.md#L38-L44": {
       "at": "hyperreality:README.md",
-      "pin": "b0e3ed46cd2ae0cd39c67163a34d80555dace812",
+      "pin": "9e217aef1c39228bb1042c9ebc10b59cacefafc4",
       "sha256": "cc6e21f8f87d836ada170888a0ae4bb8c0f26af519c579f98bd7a787be136917"
     },
     "hyperreality:README.md#L6-L12": {
       "at": "hyperreality:README.md",
-      "pin": "b0e3ed46cd2ae0cd39c67163a34d80555dace812",
+      "pin": "9e217aef1c39228bb1042c9ebc10b59cacefafc4",
       "sha256": "a22510abf8ee64fd6f80eec736d513812441f6f5f9dd97f8dd898740d4359082"
+    },
+    "hyperreality:hyperreality.py#L245-L249": {
+      "at": "hyperreality:hyperreality.py",
+      "pin": "9e217aef1c39228bb1042c9ebc10b59cacefafc4",
+      "sha256": "b19d841f92a5bba88b3096ebf9ff834e70c1ae27ebaa78879fdede42d71fbe17"
     },
     "hyperspace:FIELD_SPEC.md#L28-L33": {
       "at": "hyperspace:FIELD_SPEC.md",
@@ -217,18 +247,23 @@
     },
     "ordinatics:docs/complex_rotation_and_limit_rules.md#L5-L21": {
       "at": "ordinatics:docs/complex_rotation_and_limit_rules.md",
-      "pin": "ec5018df1aa07aec3ffac4d0e012b8f49a3d33cb",
+      "pin": "50655e9ee7f77a86594998d32015463ddba21a18",
       "sha256": "5ca74fa62ca2b08b318c5772bb1ae2caea573352d71b2236fdd9d160ed4c7ff6"
     },
     "ordinatics:docs/exponent_axis_and_rank_order.md#L25-L25": {
       "at": "ordinatics:docs/exponent_axis_and_rank_order.md",
-      "pin": "ec5018df1aa07aec3ffac4d0e012b8f49a3d33cb",
+      "pin": "50655e9ee7f77a86594998d32015463ddba21a18",
       "sha256": "6ce1a2f6424d702e76893130279d11942cb48900555fc2619a001e840cb941e3"
     },
     "ordinatics:docs/exponent_axis_and_rank_order.md#L34-L49": {
       "at": "ordinatics:docs/exponent_axis_and_rank_order.md",
-      "pin": "ec5018df1aa07aec3ffac4d0e012b8f49a3d33cb",
+      "pin": "50655e9ee7f77a86594998d32015463ddba21a18",
       "sha256": "ffacc93171dc2efb64a32d71ac3b7dbcfb3e6ff11e1f17c42a88e437c66123d8"
+    },
+    "ordinatics:tests/test_nested_sheets.py#L1-L17": {
+      "at": "ordinatics:tests/test_nested_sheets.py",
+      "pin": "50655e9ee7f77a86594998d32015463ddba21a18",
+      "sha256": "58077123037d403e0b2103fe6094fd1df35c8628444fc49852c0004634c739c7"
     }
   },
   "schema": "hyperstratum-ref-lock/1"
