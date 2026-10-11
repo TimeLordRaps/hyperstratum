@@ -36,3 +36,17 @@ def test_pattern_is_hyphen_and_plural_aware():
     assert by["person-hypernode"].search("a Person-Hypernode")
     assert not by["hyperfield"].search("hyperfield-wide")
     assert not by["hyperfield"].search("myhyperfield")
+
+
+def test_slugs_keep_non_ascii_names_apart():
+    """A name made of non-ASCII characters must not collapse to another term's slug.
+
+    Found by the sniff audit of 2026-10-11: the slug of 'Omega-limit' written with a
+    real omega became 'limit', so a reference to the first could resolve to the term
+    called 'limit', and a name made only of a symbol became the empty slug.
+    """
+    assert lexicon.slugify("Ω-limit") != lexicon.slugify("limit")
+    assert lexicon.slugify("□") != ""
+    assert lexicon.slugify("□") != lexicon.slugify("Ω")
+    assert lexicon.slugify("Hyper-Field") == "hyper-field"  # ASCII slugs are unchanged
+    assert lexicon.slugify("  Person--hypernode ") == "person-hypernode"

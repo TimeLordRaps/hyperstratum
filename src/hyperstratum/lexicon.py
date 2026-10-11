@@ -28,7 +28,14 @@ class Statement:
 
 
 def slugify(name: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+    """A name as a slug. ASCII names are unchanged.
+
+    A non-ASCII character becomes `u<hex>` between hyphens instead of vanishing, so
+    two different names cannot collapse to one slug: the omega in 'Omega-limit' used
+    to disappear and leave the slug of the term 'limit'.
+    """
+    spelled = "".join(c if c.isascii() else f"-u{ord(c):04x}-" for c in name.lower())
+    return re.sub(r"[^a-z0-9]+", "-", spelled).strip("-")
 
 
 def _sections(text: str):

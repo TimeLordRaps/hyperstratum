@@ -5,6 +5,46 @@
       "pin": "ed32f5ee1026306bdf04894da200539fd4abc266",
       "sha256": "ace7d3910f0898d5cdf950824fb73641b8d4ab0c33044376700a7a985925bebf"
     },
+    "hyperethics:L2_governance.hm#L13-L19": {
+      "at": "hyperethics:L2_governance.hm",
+      "pin": "6b33588bdea7d23eb4f2d9c2732374842e747abd",
+      "sha256": "487a29da0bc418f61a94319ccfecdf58cac8542931f9064608f9ef972e79d54b"
+    },
+    "hyperethics:L2_governance.hm#L284-L299": {
+      "at": "hyperethics:L2_governance.hm",
+      "pin": "6b33588bdea7d23eb4f2d9c2732374842e747abd",
+      "sha256": "8fe66d994dff713079c8190b98497ed023bacd4bd607e5c673e4e90dcc0e2979"
+    },
+    "hyperethics:L2_governance.hm#L375-L387": {
+      "at": "hyperethics:L2_governance.hm",
+      "pin": "6b33588bdea7d23eb4f2d9c2732374842e747abd",
+      "sha256": "402b8118366a87ba0144f23c9d23fa9530ff04a3e9f37d223c17a45de7c43b76"
+    },
+    "hyperethics:README.md#L196-L212": {
+      "at": "hyperethics:README.md",
+      "pin": "6b33588bdea7d23eb4f2d9c2732374842e747abd",
+      "sha256": "06370b549ab9c524a6906a9ebedfe1643a8df24d64655a282ef69aa44119a482"
+    },
+    "hyperethics:README.md#L214-L230": {
+      "at": "hyperethics:README.md",
+      "pin": "6b33588bdea7d23eb4f2d9c2732374842e747abd",
+      "sha256": "7bb51624d51765c2fbfd78a94a9a0b5efa8be7ec28275ec7dbdd1e0e10d624d6"
+    },
+    "hyperethics:README.md#L232-L237": {
+      "at": "hyperethics:README.md",
+      "pin": "6b33588bdea7d23eb4f2d9c2732374842e747abd",
+      "sha256": "55a90951650f271dabe90a7f7aafb3da6c20f8f49f23ba34eef57355b5d44d35"
+    },
+    "hyperethics:README.md#L239-L276": {
+      "at": "hyperethics:README.md",
+      "pin": "6b33588bdea7d23eb4f2d9c2732374842e747abd",
+      "sha256": "4fd909cd961e34cdfc95f1b54e42d137cad766d579910ee6f608f07b7e91198e"
+    },
+    "hyperethics:README.md#L304-L329": {
+      "at": "hyperethics:README.md",
+      "pin": "6b33588bdea7d23eb4f2d9c2732374842e747abd",
+      "sha256": "b86d7edbb8765c4f22781715e4e250ad0b390744c560825ffd625b7aec320bd9"
+    },
     "hyperlogic:DESIGN.md#L146-L150": {
       "at": "hyperlogic:DESIGN.md",
       "pin": "09231650d41919708824dd734a082ac9259d2f16",
