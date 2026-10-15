@@ -116,11 +116,20 @@ recursive- = base/meta/whole-form recursion
 ├── registry/moves.json     hand-recorded moves for passages whose text changed as well
 ├── wiki.lock.json          last-recorded text hash of every live reference
 ├── fields/                 one git submodule per hyperfield (the dependency edges)
-├── src/hyperstratum/       registry, lexicon, scanner, reference resolver, builder, CLI
+├── src/hyperstratum/       registry, lexicon, scanner, reference resolver, builder, CLI, field index
+├── scripts/                build_pages.py (the Pages artifact), build_field_index.py (the hyperfields page)
 ├── tests/
 ├── templates/              notify-hyperstratum.yml, for a field to announce its changes
 └── .github/                dependabot.yml, wiki.yml, sync-fields.yml + the shared conformance gate
 ```
+
+## Field index
+
+```sh
+python scripts/build_field_index.py --output _site/fields
+```
+
+Writes one static page with one entry per registered hyperfield: its role and tagline, its repository and public site where the family graph records one, the commit this repository pins, what its checkout contains (files, `.hm` declarations, Lean files, test functions, and decisions and debt where the repository keeps them), its connections in the family graph, and what is missing. It reads text only and makes no requests when opened. `src/hyperstratum/fieldindex.py` says what is read and what is not. The page is not part of the Pages build yet (HS-041).
 
 ## Status
 
